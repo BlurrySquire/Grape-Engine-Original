@@ -4,7 +4,7 @@ LDFLAGS := -L../bin -lGrapeEngine
 INCLUDE_DIR := -I../engine/source
 BIN_DIR := ../bin
 TARGET := sandbox
-DEFINES := -DGRAPE_IMPORT -D_DEBUG
+DEFINES := -DGRAPE_IMPORT -DGRAPE_DEBUG
 
 SOURCE_FILES = $(wildcard source/*.cpp) $(wildcard source/*/*.cpp)
 

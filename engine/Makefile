@@ -4,7 +4,7 @@ LDFLAGS := -L$(VULKAN_SDK)/Lib -lvulkan-1 -luser32
 INCLUDE_DIR := -I$(VULKAN_SDK)/Include
 BIN_DIR := ../bin
 TARGET := GrapeEngine
-DEFINES := -DGRAPE_EXPORT -D_DEBUG
+DEFINES := -DGRAPE_EXPORT -DGRAPE_DEBUG
 
 SOURCE_FILES = $(wildcard source/*.cpp) $(wildcard source/*/*.cpp)
 

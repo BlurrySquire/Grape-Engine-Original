@@ -10,6 +10,7 @@
                 "_DEBUG",
                 "UNICODE",
                 "_UNICODE",
+                "GRAPE_DEBUG",
                 "GRAPE_EXPORT"
             ],
             "compilerPath": "/usr/bin/gcc",
@@ -26,9 +27,9 @@
                 "${VULKAN_SDK}/include"
             ],
             "defines": [
-                "_DEBUG",
                 "UNICODE",
                 "_UNICODE",
+                "GRAPE_DEBUG",
                 "GRAPE_EXPORT"
             ],
             "windowsSdkVersion": "10.0.18362.0",
