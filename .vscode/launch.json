@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "(gdb) Attach",
+            "name": "(Windows) Launch",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}\\bin\\sandbox.exe",
