@@ -12,14 +12,16 @@
                 "_UNICODE",
                 "KEXPORT"
             ],
-            "compilerPath": "/usr/bin/clang",
+            "compilerPath": "/usr/bin/gcc",
             "cStandard": "c17",
             "cppStandard": "c++17",
-            "intelliSenseMode": "clang-x64"
+            "intelliSenseMode": "gcc-x64"
         },
         {
             "name": "Win32",
             "includePath": [
+                "D:\\Development\\w64devkit\\lib\\gcc\\x86_64-w64-mingw32\\13.2.0\\include\\c++",
+                "D:\\Development\\w64devkit\\lib\\gcc\\x86_64-w64-mingw32\\13.2.0\\include",
                 "${workspaceFolder}/engine/source/**",
                 "${VULKAN_SDK}/include"
             ],
@@ -30,10 +32,10 @@
                 "GRAPE_EXPORT"
             ],
             "windowsSdkVersion": "10.0.18362.0",
-            "compilerPath": "C:\\Program Files\\LLVM\\bin\\clang.exe",
+            "compilerPath": "D:\\Development\\w64devkit\\bin\\gcc.exe",
             "cStandard": "c17",
             "cppStandard": "c++17",
-            "intelliSenseMode": "clang-x64"
+            "intelliSenseMode": "gcc-x64"
         }
     ],
     "version": 4
