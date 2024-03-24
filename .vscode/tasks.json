@@ -4,10 +4,10 @@
             "type": "shell",
             "label": "Build - All",
             "windows": {
-                "command": "${workspaceFolder}/make",
+                "command": "make",
             },
             "linux": {
-                "command": "${workspaceFolder}/make",
+                "command": "make",
             },
             "options": {
                 "cwd": "${workspaceFolder}"
@@ -22,10 +22,10 @@
             "type": "shell",
             "label": "Build - Engine",
             "windows": {
-                "command": "${workspaceFolder}/engine/make"
+                "command": "make"
             },
             "linux": {
-                "command": "${workspaceFolder}/engine/make"
+                "command": "make"
             },
             "options": {
                 "cwd": "${workspaceFolder}/engine"
@@ -40,10 +40,10 @@
             "type": "shell",
             "label": "Build - Sandbox",
             "windows": {
-                "command": "${workspaceFolder}/sandbox/make"
+                "command": "make"
             },
             "linux": {
-                "command": "${workspaceFolder}sandbox/make"
+                "command": "make"
             },
             "options": {
                 "cwd": "${workspaceFolder}/sandbox"
