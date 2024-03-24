@@ -5,25 +5,26 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "(Windows) Launch",
-            "type": "cppvsdbg",
-            "request": "launch",
-            "program": "${workspaceFolder}/bin/sandbox.exe",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${workspaceFolder}/bin/",
-            "environment": [],
-            "console":"newExternalWindow",
-        },
-        {
-            "name": "(Linux) Launch",
+            "name": "(gdb) Attach",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/bin/sandbox",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${workspaceFolder}/bin/",
-            "environment": [],
+            "program": "${workspaceFolder}\\bin\\sandbox.exe",
+            "cwd": "${workspaceFolder}\\bin",
+            "externalConsole": true,
+            "MIMode": "gdb",
+            "miDebuggerPath": "D:\\Development\\w64devkit\\bin\\gdb.exe",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Set Disassembly Flavor to Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
         }
     ]
 }

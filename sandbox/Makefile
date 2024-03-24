@@ -1,5 +1,5 @@
 CC := g++
-CFLAGS := -Wall -Wextra -std=c++20
+CFLAGS := -Wall -Wextra -std=c++20 -g -fdiagnostics-color=always
 LDFLAGS := -L../bin -lGrapeEngine
 INCLUDE_DIR := -I../engine/source
 BIN_DIR := ../bin
