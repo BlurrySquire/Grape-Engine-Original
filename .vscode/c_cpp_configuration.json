@@ -10,7 +10,7 @@
                 "_DEBUG",
                 "UNICODE",
                 "_UNICODE",
-                "KEXPORT"
+                "GRAPE_EXPORT"
             ],
             "compilerPath": "/usr/bin/gcc",
             "cStandard": "c17",
