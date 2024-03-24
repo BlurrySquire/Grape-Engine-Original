@@ -1,5 +1,42 @@
 #pragma once
 
+// NOTE: Credit goes to Travis Vroman for the design and structure
+// of this file. I have modified it for use with C++ and to
+// better suit my game engine.
+// Changes Made:
+// - Instead of 'typedef struct' I use 'using'.
+// - I don't check for the Posix, Mac or IOS platforms.
+// - I use 'GRAPE_API' instead of 'KAPI'.
+// - I don't static assert to ensure the data types are the correct size.
+
+// NOTE: This file contains basic data structures and macros that
+// are common the the entire engine. There is also checks in place
+// to detect what platform it is being ran on.
+
+// Common Variable Types
+using uint8 = unsigned char;
+using uint16 = unsigned short;
+using uint32 = unsigned int;
+using uint64 = unsigned long long;
+
+using int8 = signed char;
+using int16 = signed short;
+using int32 = signed int;
+using int64 = signed long long;
+
+using float32 = float;
+using float64 = double;
+
+#define TRUE 1
+#define FALSE 0
+
+// Static Assertion
+#if defined(__clang__) || defined(__gcc__)
+#define STATIC_ASSERT _Static_assert
+#else
+#define STATIC_ASSERT static_assert
+#endif
+
 // DLL Export & Import
 #ifdef GRAPE_EXPORT
     #ifdef _MSC_VER
@@ -7,18 +44,13 @@
     #else
         #define GRAPE_API __attribute__((visibility("default")))
     #endif
-#endif
-
-// Static Assertions
-#if defined(__clang__) || defined(__gcc__)
-#define STATIC_ASSERT _Static_assert
 #else
-#define STATIC_ASSERT static_assert
+    #ifdef _MSC_VER
+        #define GRAPE_API __declspec(dllimport)
+    #else
+        #define GRAPE_API
+    #endif
 #endif
-
-// Booleans
-#define TRUE 1
-#define FALSE 0
 
 #if defined(WIN32) || defined(_WIN32) || defined(__WIN32__)
     #define GRAPE_PLATFORM_WINDOWS 1
@@ -32,7 +64,7 @@
         #define GRAPE_PLATFORM_ANDROID 1
     #endif
 #elif defined(__unix__)
-    #define GRAPE_PLATFORM_UNIX
+    #define GRAPE_PLATFORM_UNIX 1
 #else
     #define GRAPE_PLATFORM_UNKNOWN 1
     #error "Unsupported or unknown platform."

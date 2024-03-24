@@ -1,10 +1,12 @@
-#include <test.hpp>
+#include <defines.hpp>
+#include <core/test.hpp>
 
 #include <windows.h>
 
 int main()
 {
-    PrintTest();
-    Sleep(5000);
+    int64 integer = 123456789;
+    Test::PrintInt(integer);
+
     return EXIT_SUCCESS;
 }
