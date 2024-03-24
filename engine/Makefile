@@ -8,5 +8,5 @@ DEFINES := -DGRAPE_EXPORT -D_DEBUG
 
 SOURCE_FILES = $(wildcard source/*.cpp) $(wildcard source/*/*.cpp)
 
-build_engine: source/*.cpp
+build_engine: source/*/*.cpp
 	$(CC) $(SOURCE_FILES) $(CFLAGS) $(DEFINES) $(INCLUDE_DIR) $(LDFLAGS) -shared -Wl,--out-implib,$(BIN_DIR)/$(TARGET).lib -o $(BIN_DIR)/$(TARGET).dll
