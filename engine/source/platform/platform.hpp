@@ -10,7 +10,7 @@ namespace Platform {
     void Close();
 
     namespace Console {
-        void Write(std::string text, uint8 colour);
-        void WriteError(std::string text, uint8 colour);
+        GRAPE_API void Write(std::string text, uint8 colour);
+        GRAPE_API void WriteError(std::string text, uint8 colour);
     };
 };
