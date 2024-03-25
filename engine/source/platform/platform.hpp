@@ -2,7 +2,6 @@
 
 #include "../defines.hpp"
 
-#include <iostream>
 #include <string>
 
 namespace Platform {

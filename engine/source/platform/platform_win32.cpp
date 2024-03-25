@@ -5,7 +5,12 @@
 #include <windows.h>
 #include <windowsx.h>
 
+#include <string>
+
+LRESULT CALLBACK WindowProc(HWND hwnd, uint32 msg, WPARAM w_param, LPARAM l_param);
+
 namespace Platform {
+
     void Init() {
 
     }
