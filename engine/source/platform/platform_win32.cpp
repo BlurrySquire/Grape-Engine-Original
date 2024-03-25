@@ -19,8 +19,8 @@ namespace Platform {
             BACKGROUND_RED | 0,                 // FATAL
             FOREGROUND_RED,                     // ERROR 
             FOREGROUND_RED | FOREGROUND_GREEN,  // WARN
-            FOREGROUND_GREEN,                   // DEBUG
-            FOREGROUND_INTENSITY                // INFO
+            FOREGROUND_INTENSITY,               // INFO
+            FOREGROUND_GREEN                    // DEBUG
         };
 
         void Write(std::string text, uint8 colour) {
