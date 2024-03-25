@@ -10,7 +10,8 @@ Here is some of the features I have planned:
 - Plug and play renderer. Multiple rendering backends which can be swapped out. (DLL that uses a specific API for interracting with engine).
 
 ## Building Grape-Engine
-Please refer to either [building setup (Windows)](https://github.com/BlurrySquire/Grape-Engine#Building_Setup_(Windows)) or [building setup (Linux)](https://github.com/BlurrySquire/Grape-Engine#Building_Setup_(Linux)) before starting.
+Please refer to either [building setup (Windows)](https://github.com/BlurrySquire/Grape-Engine/blob/main/README.md#building-setup-windows) or [building setup (Linux)](https://github.com/BlurrySquire/Grape-Engine/blob/main/README.md#building-setup-linux) before starting.
+
 1. To start with clone the [repository](https://github.com/BlurrySquire/Grape-Engine).
 2. If you use VS Code then open the repository and press Crtl+Shift+B to bring up the build options. Select either all, engine or sandbox.
 3. If you don't use VS Code or don't want to use Ctrl+Shift+B, then hop into the terminal and run the ``make`` command. The Makefile in the root directory builds the engine and the sandbox application. To only build the engine then run the Makefile in the engine directory. The same applies for the sandbox application but in the sandbox directory.
