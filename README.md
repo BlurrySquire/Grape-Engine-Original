@@ -1,5 +1,8 @@
 # Grape-Engine
-A W.I.P 2D Game engine created in C, and uses Vulkan for rendering.
+A 2D Game Engine created with C++ and Vulkan.
+
+## Attributions/Contributions
+Thank you to [Travis Vroman](https://github.com/travisvroman) for the ``defines.hpp`` file. It was designed for use with C and [Kohi](https://github.com/travisvroman/kohi), I modified it to better suit my engine and C++. If you would like a list of the modifications made they are in the top comment of ``engine/source/defines.hpp``.
 
 ## The Plan
 Here is some of the features I have planned:
