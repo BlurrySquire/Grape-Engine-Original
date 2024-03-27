@@ -28,7 +28,7 @@ namespace Platform {
             FOREGROUND_GREEN                    // DEBUG
         };
 
-        void Write(std::string text, uint8 colour) {
+        void Write(const std::string& text, uint8 colour) {
             HANDLE console_handle = GetStdHandle(STD_OUTPUT_HANDLE);
             uint64 length = strlen(text.c_str());
             LPDWORD number_written = 0;
@@ -38,7 +38,7 @@ namespace Platform {
 
         }
 
-        void WriteError(std::string text, uint8 colour) {
+        void WriteError(const std::string& text, uint8 colour) {
             HANDLE console_handle = GetStdHandle(STD_ERROR_HANDLE);
             uint64 length = strlen(text.c_str());
             LPDWORD number_written = 0;

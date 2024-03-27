@@ -19,11 +19,11 @@ namespace Logger {
         DEBUG = 4
     };
 
-    GRAPE_API void LogMessage(std::string text, uint8 level);
+    GRAPE_API void LogMessage(const std::string& text, uint8 level);
 
-    GRAPE_API void Fatal(std::string text);
-    GRAPE_API void Error(std::string text);
-    GRAPE_API void Warn(std::string text);
-    GRAPE_API void Info(std::string text);
-    GRAPE_API void Debug(std::string text);
+    GRAPE_API void Fatal(const std::string& text);
+    GRAPE_API void Error(const std::string& text);
+    GRAPE_API void Warn(const std::string& text);
+    GRAPE_API void Info(const std::string& text);
+    GRAPE_API void Debug(const std::string& text, bool override=false);
 }
