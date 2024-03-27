@@ -30,21 +30,19 @@ namespace Platform {
 
         void Write(const std::string& text, uint8 colour) {
             HANDLE console_handle = GetStdHandle(STD_OUTPUT_HANDLE);
-            uint64 length = strlen(text.c_str());
             LPDWORD number_written = 0;
 
             SetConsoleTextAttribute(console_handle, LoggerColours[colour]);
-            WriteConsoleA(console_handle, text.c_str(), (DWORD)length, number_written, 0);
+            WriteConsoleA(console_handle, text.c_str(), static_cast<DWORD>(text.size()), number_written, 0);
 
         }
 
         void WriteError(const std::string& text, uint8 colour) {
             HANDLE console_handle = GetStdHandle(STD_ERROR_HANDLE);
-            uint64 length = strlen(text.c_str());
             LPDWORD number_written = 0;
 
             SetConsoleTextAttribute(console_handle, LoggerColours[colour]);
-            WriteConsoleA(console_handle, text.c_str(), (DWORD)length, number_written, 0);
+            WriteConsoleA(console_handle, text.c_str(), static_cast<DWORD>(text.size()), number_written, 0);
         }
     }
 }
