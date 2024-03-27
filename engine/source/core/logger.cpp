@@ -12,27 +12,19 @@ namespace Logger {
     }
 
     void Fatal(const std::string& text) {
-        std::stringstream new_text;
-        new_text << "[FATAL]: " << text;
-        LogMessage(new_text.str(), LogLevel::FATAL);
+        LogMessage("[FATAL]: " + text, LogLevel::FATAL);
     }
 
     void Error(const std::string& text) {
-        std::stringstream new_text;
-        new_text << "[ERROR]: " << text;
-        LogMessage(new_text.str(), LogLevel::ERROR);
+        LogMessage("[ERROR]: " + text, LogLevel::ERROR);
     }
 
     void Warn(const std::string& text) {
-        std::stringstream new_text;
-        new_text << "[WARN]: " << text;
-        LogMessage(new_text.str(), LogLevel::WARN);
+        LogMessage("[WARN]: " + text, LogLevel::WARN);
     }
 
     void Info(const std::string& text) {
-        std::stringstream new_text;
-        new_text << "[INFO]: " << text;
-        LogMessage(new_text.str(), LogLevel::INFO);
+        LogMessage("[INFO]: " + text, LogLevel::INFO);
     }
 
     void Debug(const std::string& text, bool override) {
@@ -40,9 +32,7 @@ namespace Logger {
         // We can also override this if needed, so we can
         // print debug messages when we are in release mode.
         if (GRAPE_LOGGER_DEBUG == 1 || override == true) {
-            std::stringstream new_text;
-            new_text << "[DEBUG]: " << text;
-            LogMessage(new_text.str(), LogLevel::DEBUG);
+            LogMessage("[DEBUG]: " + text, LogLevel::DEBUG);
         }
     }
 }
