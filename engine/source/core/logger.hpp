@@ -1,6 +1,7 @@
 #include "../defines.hpp"
 #include "../platform/platform.hpp"
 
+#include <sstream>
 #include <string>
 
 // We only want to show debug messages if we are in debug mode.
