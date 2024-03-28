@@ -10,7 +10,8 @@ int main(void)
     Logger::Error("Error test.\n");
     Logger::Warn("Warn test.\n");
     Logger::Info("Info test.\n");
-    Logger::Debug("Debug test.\n\n");
+    Logger::Debug("Debug test.\n");
+    Logger::Trace("Trace test.\n");
 
     return EXIT_SUCCESS;
 }

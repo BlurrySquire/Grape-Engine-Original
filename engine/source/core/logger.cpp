@@ -33,4 +33,11 @@ namespace Logger {
             LogMessage("[DEBUG]: " + text, LogLevel::DEBUG);
         }
     }
+
+    void Trace(const std::string& text) {
+        // NOTE: Only show trace messages if we are in debug mode.
+        if (GRAPE_LOGGER_DEBUG == 1) {
+            LogMessage("[TRACE]: " + text, LogLevel::TRACE);
+        }
+    }
 }

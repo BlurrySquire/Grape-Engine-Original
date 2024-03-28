@@ -20,12 +20,13 @@ namespace Platform {
     }
 
     namespace Console {
-        uint8_t LoggerColours[5] = {
+        uint8_t LoggerColours[6] = {
             BACKGROUND_RED | 0,                 // FATAL
             FOREGROUND_RED,                     // ERROR 
             FOREGROUND_RED | FOREGROUND_GREEN,  // WARN
-            FOREGROUND_INTENSITY,               // INFO
-            FOREGROUND_GREEN                    // DEBUG
+            FOREGROUND_GREEN,                   // INFO
+            FOREGROUND_BLUE,                    // DEBUG
+            FOREGROUND_INTENSITY                // TRACE
         };
 
         void Write(const std::string& text, uint8_t colour) {

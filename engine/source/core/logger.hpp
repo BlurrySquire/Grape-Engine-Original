@@ -17,7 +17,8 @@ namespace Logger {
         ERROR = 1,
         WARN = 2,
         INFO = 3,
-        DEBUG = 4
+        DEBUG = 4,
+        TRACE = 5
     };
 
     GRAPE_API void LogMessage(const std::string& text, const LogLevel level);
@@ -27,4 +28,5 @@ namespace Logger {
     GRAPE_API void Warn(const std::string& text);
     GRAPE_API void Info(const std::string& text);
     GRAPE_API void Debug(const std::string& text);
+    GRAPE_API void Trace(const std::string& text);
 }
