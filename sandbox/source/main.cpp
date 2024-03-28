@@ -12,9 +12,5 @@ int main(void)
     Logger::Info("Info test.\n");
     Logger::Debug("Debug test.\n\n");
 
-    // NOTE: Test to make sure we can enable and disable debug mode.
-    Logger::Debug("You cannot see this message in release.\n");
-    Logger::Debug("You can see this debug message in release.\n", true);
-
     return EXIT_SUCCESS;
 }

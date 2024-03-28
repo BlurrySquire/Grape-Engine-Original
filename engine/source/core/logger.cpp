@@ -27,11 +27,9 @@ namespace Logger {
         LogMessage("[INFO]: " + text, LogLevel::INFO);
     }
 
-    void Debug(const std::string& text, bool override) {
+    void Debug(const std::string& text) {
         // NOTE: Only show debug messages if we are in debug mode.
-        // We can also override this if needed, so we can
-        // print debug messages when we are in release mode.
-        if (GRAPE_LOGGER_DEBUG == 1 || override == true) {
+        if (GRAPE_LOGGER_DEBUG == 1) {
             LogMessage("[DEBUG]: " + text, LogLevel::DEBUG);
         }
     }
