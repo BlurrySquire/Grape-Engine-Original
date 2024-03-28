@@ -7,7 +7,7 @@
 
 #include <string>
 
-LRESULT CALLBACK WindowProc(HWND hwnd, uint32 msg, WPARAM w_param, LPARAM l_param);
+LRESULT CALLBACK WindowProc(HWND hwnd, uint32_t msg, WPARAM w_param, LPARAM l_param);
 
 namespace Platform {
 
@@ -20,7 +20,7 @@ namespace Platform {
     }
 
     namespace Console {
-        uint8 LoggerColours[5] = {
+        uint8_t LoggerColours[5] = {
             BACKGROUND_RED | 0,                 // FATAL
             FOREGROUND_RED,                     // ERROR 
             FOREGROUND_RED | FOREGROUND_GREEN,  // WARN
@@ -28,7 +28,7 @@ namespace Platform {
             FOREGROUND_GREEN                    // DEBUG
         };
 
-        void Write(const std::string& text, uint8 colour) {
+        void Write(const std::string& text, uint8_t colour) {
             HANDLE console_handle = GetStdHandle(STD_OUTPUT_HANDLE);
             LPDWORD number_written = 0;
 
@@ -37,7 +37,7 @@ namespace Platform {
 
         }
 
-        void WriteError(const std::string& text, uint8 colour) {
+        void WriteError(const std::string& text, uint8_t colour) {
             HANDLE console_handle = GetStdHandle(STD_ERROR_HANDLE);
             LPDWORD number_written = 0;
 
