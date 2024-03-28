@@ -5,6 +5,8 @@
 
 int main(void)
 {
+    Logger::InitFile("logger_test.txt");
+
     // NOTE: Logger testing.
     Logger::Fatal("Fatal Error test.\n");
     Logger::Error("Error test.\n");
@@ -12,6 +14,8 @@ int main(void)
     Logger::Info("Info test.\n");
     Logger::Debug("Debug test.\n");
     Logger::Trace("Trace test.\n");
+
+    Logger::CloseFile();
 
     return EXIT_SUCCESS;
 }

@@ -1,10 +1,11 @@
 #include "../defines.hpp"
 #include "../platform/platform.hpp"
 
+#include <fstream>
 #include <sstream>
 #include <string>
 
-// We only want to show debug messages if we are in debug mode.
+// NOTE: We only want to show debug messages if we are in debug mode.
 #ifdef GRAPE_DEBUG
     #define GRAPE_LOGGER_DEBUG 1
 #else
@@ -20,6 +21,11 @@ namespace Logger {
         DEBUG = 4,
         TRACE = 5
     };
+
+    std::fstream log_file = NULL;
+
+    GRAPE_API void InitFile(const std::string& filename);
+    GRAPE_API void CloseFile();
 
     GRAPE_API void LogMessage(const std::string& text, const LogLevel level);
 
