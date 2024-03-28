@@ -1,5 +1,8 @@
 # Grape Engine Docs - Building
-Please refer to either [building setup (Windows)](https://github.com/BlurrySquire/Grape-Engine/documentation/building.md#building-setup-windows) or [building setup (Linux)](https://github.com/BlurrySquire/Grape-Engine/documentation/building.md#building-setup-linux) before starting.
+- [Return to README](https://github.com/BlurrySquire/Grape-Engine/tree/main?tab=readme-ov-file)
+- [Return to Documentation](https://github.com/BlurrySquire/Grape-Engine/blob/main/documentation/documentation.md)
+
+Please refer to either [building setup (Windows)](https://github.com/BlurrySquire/Grape-Engine/blob/main/documentation/building.md#building-setup-windows) or [building setup (Linux)](https://github.com/BlurrySquire/Grape-Engine/blob/main/documentation/building.md#building-setup-linux) before starting.
 
 1. To start with clone the [repository](https://github.com/BlurrySquire/Grape-Engine).
 2. If you use VS Code then open the repository and press Crtl+Shift+B to bring up the build options. Select either all, engine or sandbox.

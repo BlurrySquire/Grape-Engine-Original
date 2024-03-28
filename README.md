@@ -9,6 +9,6 @@ A 2D Game Engine created with C++ and Vulkan.
 - Then make a pull request. The maintainers (currently only me) will review the pull request and either merge or decline it. If we decline it we will give a reason for it.
 
 ## Documentation (Work-In-Progress)
-- [Main Documentation](https://github.com/BlurrySquire/Grape-Engine/documentation/documentation.md)
+- [Main Documentation](https://github.com/BlurrySquire/Grape-Engine/blob/main/documentation/documentation.md)
 - [API Docs]()
-- [Building Guide]()
+- [Building Guide](https://github.com/BlurrySquire/Grape-Engine/blob/main/documentation/building.md)
