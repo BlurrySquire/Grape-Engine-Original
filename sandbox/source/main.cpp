@@ -3,7 +3,7 @@
 
 #include <windows.h>
 
-int main()
+int main(void)
 {
     // NOTE: Logger testing.
     Logger::Fatal("Fatal Error test.\n");
