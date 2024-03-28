@@ -10,5 +10,5 @@ A 2D Game Engine created with C++ and Vulkan.
 
 ## Documentation (Work-In-Progress)
 - [Main Documentation](https://github.com/BlurrySquire/Grape-Engine/blob/main/documentation/documentation.md)
-- [API Docs]()
+- [API Docs](https://github.com/BlurrySquire/Grape-Engine/blob/main/documentation/api_documentation.md)
 - [Building Guide](https://github.com/BlurrySquire/Grape-Engine/blob/main/documentation/building.md)
