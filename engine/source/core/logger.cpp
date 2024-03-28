@@ -1,7 +1,7 @@
 #include "logger.hpp"
 
 namespace Logger {
-    void LogMessage(const std::string& text, uint8 level) {
+    void LogMessage(const std::string& text, const LogLevel level) {
         // Some OSes have a std output stream for errors.
         // We want to use it for errors and fatal errors where possible.
         if (level < LogLevel::WARN) {
