@@ -26,5 +26,5 @@ namespace Logger {
     GRAPE_API void Error(const std::string& text);
     GRAPE_API void Warn(const std::string& text);
     GRAPE_API void Info(const std::string& text);
-    GRAPE_API void Debug(const std::string& text, bool override=false);
+    GRAPE_API void Debug(const std::string& text);
 }
