@@ -5,6 +5,7 @@
 #include <windows.h>
 #include <windowsx.h>
 
+#include <sstream>
 #include <string>
 
 LRESULT CALLBACK WindowProc(HWND hwnd, uint32_t msg, WPARAM w_param, LPARAM l_param);
@@ -45,7 +46,23 @@ namespace Platform {
             SetConsoleTextAttribute(console_handle, LoggerColours[colour]);
             WriteConsoleA(console_handle, text.c_str(), static_cast<DWORD>(text.size()), number_written, 0);
         }
-    }
+    };
+
+    namespace Time {
+        std::string GetLocal() {
+            SYSTEMTIME time;
+            std::stringstream time_str;
+
+            GetLocalTime(&time);
+
+            time_str << "[";
+            time_str << time.wDay << "/" << time.wMonth << "/" << time.wYear;
+            time_str << ", " << time.wHour << ":" << time.wMinute << ":" << time.wSecond;
+            time_str << "]";
+
+            return time_str.str();
+        }
+    };
 }
 
 #endif
