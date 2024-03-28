@@ -1,5 +1,5 @@
 # Grape Engine Docs - Main
-- [Return to README](https://github.com/BlurrySquire/Grape-Engine/tree/main?tab=readme-ov-file)
+- [Return to README](https://github.com/BlurrySquire/Grape-Engine)
 - [Return to Documentation](https://github.com/BlurrySquire/Grape-Engine/blob/main/documentation/documentation.md)
 
 This is the main section of the Grape Engine documentation.

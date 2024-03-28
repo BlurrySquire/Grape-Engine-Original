@@ -1,5 +1,5 @@
 # Grape Engine Docs - Building
-- [Return to README](https://github.com/BlurrySquire/Grape-Engine/tree/main?tab=readme-ov-file)
+- [Return to README](https://github.com/BlurrySquire/Grape-Engine)
 - [Return to Documentation](https://github.com/BlurrySquire/Grape-Engine/blob/main/documentation/documentation.md)
 
 Please refer to either [building setup (Windows)](https://github.com/BlurrySquire/Grape-Engine/blob/main/documentation/building.md#building-setup-windows) or [building setup (Linux)](https://github.com/BlurrySquire/Grape-Engine/blob/main/documentation/building.md#building-setup-linux) before starting.
