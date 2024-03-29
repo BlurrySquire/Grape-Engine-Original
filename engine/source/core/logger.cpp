@@ -5,11 +5,11 @@
 namespace Logger {
     void InitFile(const std::string& filename) {
         log_file = std::fstream(filename, std::ios::out);
-        const std::string file_start = "Grape Engine Log File\n\n";
-        log_file.write(file_start.c_str(), file_start.size());
+        Info("Grape Engine Logger Init.\n");
     }
 
     void CloseFile() {
+        Info("Grape Engine Logger Close.\n");
         log_file.close();
     }
 
@@ -19,9 +19,15 @@ namespace Logger {
         // We want to use it for errors and fatal errors where possible.
         if (level < LogLevel::WARN) {
             Platform::Console::WriteError(text, level);
+
+            std::string log_time = Platform::Time::GetLocal();
+            log_file.write(log_time.c_str(), log_time.size());
             log_file.write(text.c_str(), text.size());
         } else {
             Platform::Console::Write(text, level);
+            
+            std::string log_time = Platform::Time::GetLocal();
+            log_file.write(log_time.c_str(), log_time.size());
             log_file.write(text.c_str(), text.size());
         }
     }

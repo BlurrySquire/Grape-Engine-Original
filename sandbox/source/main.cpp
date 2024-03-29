@@ -17,5 +17,6 @@ int main(void)
 
     Logger::CloseFile();
 
+
     return EXIT_SUCCESS;
 }
