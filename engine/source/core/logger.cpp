@@ -1,7 +1,5 @@
 #include "logger.hpp"
 
-// TODO: Move logging over to a separate thread as writing to a file takes a long time.
-
 namespace Logger {
     void InitFile(const std::string& filename) {
         log_file = std::fstream(filename, std::ios::out);
