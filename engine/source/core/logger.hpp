@@ -19,7 +19,8 @@ namespace Logger {
         WARN = 2,
         INFO = 3,
         DEBUG = 4,
-        TRACE = 5
+        TRACE = 5,
+        NONE = 6
     };
 
     std::fstream log_file = NULL;
@@ -27,7 +28,7 @@ namespace Logger {
     GRAPE_API void InitFile(const std::string& filename);
     GRAPE_API void CloseFile();
 
-    GRAPE_API void LogMessage(const std::string& text, const LogLevel level);
+    GRAPE_API void LogMessage(const std::string& text, const LogLevel level=LogLevel::NONE);
 
     GRAPE_API void Fatal(const std::string& text);
     GRAPE_API void Error(const std::string& text);

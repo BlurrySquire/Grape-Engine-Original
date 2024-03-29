@@ -13,7 +13,9 @@ int main(void)
     Logger::Warn("Warn test.\n");
     Logger::Info("Info test.\n");
     Logger::Debug("Debug test.\n");
-    Logger::Trace("Trace test.\n");
+    Logger::Trace("Trace test.\n\n");
+
+    Logger::LogMessage("This message is printed as default text.\n");
 
     Logger::CloseFile();
 
