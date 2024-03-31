@@ -17,17 +17,14 @@ namespace Logger {
         // We want to use it for errors and fatal errors where possible.
         if (level < LogLevel::WARN) {
             Platform::Console::WriteError(text, level);
-
-            std::string log_time = Platform::Time::GetLocal();
-            log_file.write(log_time.c_str(), log_time.size());
-            log_file.write(text.c_str(), text.size());
         } else {
             Platform::Console::Write(text, level);
-            
-            std::string log_time = Platform::Time::GetLocal();
-            log_file.write(log_time.c_str(), log_time.size());
-            log_file.write(text.c_str(), text.size());
         }
+
+        // Log the message to the log file.
+        std::string log_time = Platform::Time::GetLocal();
+        log_file.write(log_time.c_str(), log_time.size());
+        log_file.write(text.c_str(), text.size());
     }
 
     // Logger message types: [Fatal, Error, Warn, Info, Debug, Trace]
