@@ -24,6 +24,7 @@ namespace Logger {
     };
 
     std::fstream log_file = NULL;
+    bool log_file_is_open = false;
 
     GRAPE_API void InitFile(const std::string& filename);
     GRAPE_API void CloseFile();

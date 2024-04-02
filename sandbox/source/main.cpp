@@ -5,6 +5,9 @@
 
 int main(void)
 {
+    // NOTE: Test to make sure logger works with no file
+    Logger::Info("Test logger with no file open.\n\n");
+
     Logger::InitFile("logger_test.txt");
 
     // NOTE: Logger testing.

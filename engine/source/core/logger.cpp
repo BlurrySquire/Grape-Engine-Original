@@ -4,11 +4,13 @@ namespace Logger {
     void InitFile(const std::string& filename) {
         log_file = std::fstream(filename, std::ios::out);
         Info("Grape Engine Logger Init.\n");
+        log_file_is_open = true;
     }
 
     void CloseFile() {
         Info("Grape Engine Logger Close.\n");
         log_file.close();
+        log_file_is_open = false;
     }
 
     // Base function for logging strings, uses platform layer functions.
@@ -21,10 +23,12 @@ namespace Logger {
             Platform::Console::Write(text, level);
         }
 
-        // Log the message to the log file.
-        std::string log_time = Platform::Time::GetLocal();
-        log_file.write(log_time.c_str(), log_time.size());
-        log_file.write(text.c_str(), text.size());
+        // Log the message to the log file if a log file is open
+        if (log_file_is_open) {
+            std::string log_time = Platform::Time::GetLocal();
+            log_file.write(log_time.c_str(), log_time.size());
+            log_file.write(text.c_str(), text.size());
+        }
     }
 
     // Logger message types: [Fatal, Error, Warn, Info, Debug, Trace]
