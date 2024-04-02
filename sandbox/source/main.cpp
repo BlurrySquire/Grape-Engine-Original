@@ -1,8 +1,6 @@
 #include <defines.hpp>
 #include <core/logger.hpp>
 
-#include <windows.h>
-
 int main(void)
 {
     // NOTE: Test to make sure logger works with no file
