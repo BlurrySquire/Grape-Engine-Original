@@ -1,65 +1,76 @@
 #include "logger.hpp"
 
-namespace Logger {
-    void InitFile(const std::string& filename) {
-        log_file = std::fstream(filename, std::ios::out);
-        Info("Grape Engine Logger Init.\n");
-        log_file_is_open = true;
-    }
+Logger::Logger(const std::string& filepath) noexcept {
+    this->m_filepath = filepath;
+    this->m_backlog.clear();
 
-    void CloseFile() {
-        Info("Grape Engine Logger Close.\n");
-        log_file.close();
-        log_file_is_open = false;
+    // Make sure the file exists by creating a blank one.
+    std::fstream file(this->m_filepath, std::ios::out);
+    if (file.is_open()) {
+        file.write("", 0);
+        file.close();
     }
+}
 
-    // Base function for logging strings, uses platform layer functions.
-    void LogMessage(const std::string& text, const LogLevel level) {
-        // Some OSes have a std output stream for errors.
-        // We want to use it for errors and fatal errors where possible.
-        if (level < LogLevel::WARN) {
-            Platform::Console::WriteError(text, level);
-        } else {
-            Platform::Console::Write(text, level);
+Logger::~Logger() {
+    this->WriteBacklog();
+}
+
+void Logger::LogMessage(const std::string& text, LogLevel log_level) {
+    if (log_level < LogLevel::WARN) {
+        Platform::Console::WriteError(text, log_level);
+    } else {
+        Platform::Console::Write(text, log_level);
+    }
+    
+    this->m_backlog.emplace_back(text);
+
+    if (this->m_backlog.size() == 5) {
+        this->WriteBacklog();
+    }
+}
+
+void Logger::ClearBacklog() {
+    this->m_backlog.clear();
+}
+
+void Logger::WriteBacklog() {
+    std::fstream file(this->m_filepath, std::ios::app);
+    if (file.is_open()) {
+        int backlog_size = this->m_backlog.size();
+        for (int i = 0; i < backlog_size; i++) {
+            std::string text = this->m_backlog[i];
+            file.write(text.c_str(), text.size());
         }
-
-        // Log the message to the log file if a log file is open
-        if (log_file_is_open) {
-            std::string log_time = Platform::Time::GetLocal();
-            log_file.write(log_time.c_str(), log_time.size());
-            log_file.write(text.c_str(), text.size());
-        }
+        file.close();
     }
+    this->ClearBacklog();
+}
 
-    // Logger message types: [Fatal, Error, Warn, Info, Debug, Trace]
+void Logger::Fatal(const std::string& text) {
+    this->LogMessage("[FATAL]: " + text, LogLevel::FATAL);
+}
 
-    void Fatal(const std::string& text) {
-        LogMessage("[FATAL]: " + text, LogLevel::FATAL);
+void Logger::Error(const std::string& text) {
+    this->LogMessage("[ERROR]: " + text, LogLevel::ERROR);
+}
+
+void Logger::Warn(const std::string& text) {
+    this->LogMessage("[WARN]: " + text, LogLevel::WARN);
+}
+
+void Logger::Info(const std::string& text) {
+    this->LogMessage("[INFO]: " + text, LogLevel::INFO);
+}
+
+void Logger::Debug(const std::string& text) {
+    if (GRAPE_LOGGER_DEBUG == 1) {
+        this->LogMessage("[DEBUG]: " + text, LogLevel::DEBUG);
     }
+}
 
-    void Error(const std::string& text) {
-        LogMessage("[ERROR]: " + text, LogLevel::ERROR);
-    }
-
-    void Warn(const std::string& text) {
-        LogMessage("[WARN]: " + text, LogLevel::WARN);
-    }
-
-    void Info(const std::string& text) {
-        LogMessage("[INFO]: " + text, LogLevel::INFO);
-    }
-
-    void Debug(const std::string& text) {
-        // NOTE: Only show debug messages if we are in debug mode.
-        if (GRAPE_LOGGER_DEBUG == 1) {
-            LogMessage("[DEBUG]: " + text, LogLevel::DEBUG);
-        }
-    }
-
-    void Trace(const std::string& text) {
-        // NOTE: Only show trace messages if we are in debug mode.
-        if (GRAPE_LOGGER_DEBUG == 1) {
-            LogMessage("[TRACE]: " + text, LogLevel::TRACE);
-        }
+void Logger::Trace(const std::string& text) {
+    if (GRAPE_LOGGER_DEBUG == 1) {
+        this->LogMessage("[TRACE]: " + text, LogLevel::TRACE);
     }
 }

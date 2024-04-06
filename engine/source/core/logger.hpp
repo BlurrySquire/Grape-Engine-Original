@@ -3,6 +3,7 @@
 
 #include <fstream>
 #include <sstream>
+#include <vector>
 #include <string>
 
 // NOTE: We only want to show debug messages if we are in debug mode.
@@ -12,29 +13,40 @@
     #define GRAPE_LOGGER_DEBUG 0
 #endif
 
-namespace Logger {
+class [[nodiscard]] Logger {
+private:
     enum LogLevel {
         FATAL = 0,
         ERROR = 1,
         WARN = 2,
         INFO = 3,
         DEBUG = 4,
-        TRACE = 5,
-        NONE = 6
+        TRACE = 5
     };
 
-    std::fstream log_file = NULL;
-    bool log_file_is_open = false;
+    std::string m_filepath;
+    std::vector<std::string> m_backlog;
 
-    GRAPE_API void InitFile(const std::string& filename);
-    GRAPE_API void CloseFile();
+    void LogMessage(const std::string& text, LogLevel log_level);
 
-    GRAPE_API void LogMessage(const std::string& text, const LogLevel level=LogLevel::NONE);
+public:
+    explicit Logger(const std::string& filepath = "grape_log.txt") noexcept;
+    ~Logger();
 
-    GRAPE_API void Fatal(const std::string& text);
-    GRAPE_API void Error(const std::string& text);
-    GRAPE_API void Warn(const std::string& text);
-    GRAPE_API void Info(const std::string& text);
-    GRAPE_API void Debug(const std::string& text);
-    GRAPE_API void Trace(const std::string& text);
-}
+    void Fatal(const std::string& text);
+    void Error(const std::string& text);
+    void Warn(const std::string& text);
+    void Info(const std::string& text);
+    void Debug(const std::string& text);
+    void Trace(const std::string& text);
+
+    /*
+        Clears all saved log messages from the backlog.
+    */
+    void ClearBacklog();
+
+    /*
+        Writes all log messages from the backlog to the log file then clears it.
+    */
+    void WriteBacklog();
+};
