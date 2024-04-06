@@ -7,7 +7,10 @@ A 2D Game Engine created with C++ and Vulkan.
 ## To-Do
 My game engine is a bit of a mess. I am revamping everything before continuing development.
 - [X] Revamp the logger.
-- [ ] Revamp the platform layer.
+- [X] Revamp the platform layer.
+- [ ] Rendering canvas creation in platform layer.
+- [ ] Windows platform layer. (W.I.P)
+- [ ] Linux platform layer.
 - [ ] Create an application layer.
 - [ ] Work on LUA integration using [Sol2](https://github.com/ThePhD/sol2)
 
