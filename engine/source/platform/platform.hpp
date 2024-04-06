@@ -4,16 +4,9 @@
 
 #include <string>
 
-namespace Platform {
-    void Init();
-    void Close();
+class Platform {
+public:
+    static void Console_Write(const std::string& text, uint8_t colour, bool as_error = false);
 
-    namespace Console {
-        GRAPE_API void Write(const std::string& text, uint8_t colour);
-        GRAPE_API void WriteError(const std::string& text, uint8_t colour);
-    };
-
-    namespace Time {
-        GRAPE_API std::string GetLocal();
-    };
+    static std::string Time_GetLocal();
 };

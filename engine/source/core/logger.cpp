@@ -18,9 +18,9 @@ Logger::~Logger() {
 
 void Logger::LogMessage(const std::string& text, LogLevel log_level) {
     if (log_level < LogLevel::WARN) {
-        Platform::Console::WriteError(text, log_level);
+        Platform::Console_Write(text, log_level, true);
     } else {
-        Platform::Console::Write(text, log_level);
+        Platform::Console_Write(text, log_level, false);
     }
     
     this->m_backlog.emplace_back(text);
@@ -36,6 +36,7 @@ void Logger::ClearBacklog() {
 
 void Logger::WriteBacklog() {
     std::fstream file(this->m_filepath, std::ios::app);
+
     if (file.is_open()) {
         int backlog_size = this->m_backlog.size();
         for (int i = 0; i < backlog_size; i++) {
