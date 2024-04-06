@@ -4,7 +4,7 @@
 // of this file. I have modified it for use with C++ and to
 // better suit my game engine.
 // Changes Made:
-// - Instead of 'typedef struct' I use 'using'.
+// - I use variable types from 'cstdint' from std rather than custom types.
 // - I don't check for the Posix, Mac or IOS platforms.
 // - I use 'GRAPE_API' instead of 'KAPI'.
 // - I don't static assert to ensure the data types are the correct size.
