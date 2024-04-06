@@ -1,8 +1,7 @@
 #include <defines.hpp>
 #include <core/logger.hpp>
 
-int main(void)
-{
+int main(void) {
     // Create a logger and give it a file name (default: 'grape_log.txt')
     Logger logger("test.txt");
     
