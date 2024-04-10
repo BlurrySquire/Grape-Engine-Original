@@ -4,3 +4,10 @@
 # Build folders
 bin/
 bin-int/
+
+# Visual Studio Files
+.vs/
+**.sln
+**.vcxproj
+**.vcxproj.user
+**.vcxproj.filters
