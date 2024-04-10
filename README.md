@@ -9,7 +9,7 @@ A 2D Game Engine created with C++ and Vulkan.
 My game engine is a bit of a mess. I am revamping everything before continuing development. The items in the list are in order of importance.
 - [X] Revamp the logger.
 - [X] Revamp the platform layer.
-- [X] Switch over to Premake for the build system (Wasn't fun.).
+- [X] Switch over to Premake for the build system (Wasn't fun).
 - [ ] Windows platform layer. (W.I.P)
 - [ ] Linux platform layer.
 - [ ] Create an application layer.
