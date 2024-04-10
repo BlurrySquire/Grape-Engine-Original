@@ -23,21 +23,6 @@
 #define STATIC_ASSERT static_assert
 #endif
 
-// DLL Export & Import
-#ifdef GRAPE_EXPORT
-    #ifdef _MSC_VER
-        #define GRAPE_API __declspec(dllexport)
-    #else
-        #define GRAPE_API __attribute__((visibility("default")))
-    #endif
-#else
-    #ifdef _MSC_VER
-        #define GRAPE_API __declspec(dllimport)
-    #else
-        #define GRAPE_API
-    #endif
-#endif
-
 #if defined(WIN32) || defined(_WIN32) || defined(__WIN32__)
     #define GRAPE_PLATFORM_WINDOWS 1
     #ifndef _WIN64
