@@ -13,17 +13,18 @@ project "Engine"
     includedirs
 	{
 		"%{prj.location}/source",
+		"%{IncludeDirectories.spdlog}",
 		"%{IncludeDirectories.vulkan}"
 	}
 
 	libdirs
 	{
-		"$(VULKAN_SDK)/Lib"
+		path.join(os.getenv("VULKAN_SDK"), "Lib")
 	}
 
     links
 	{
-		"vulkan-1.lib"
+		"vulkan-1"
 	}
 
 	filter "system:windows"

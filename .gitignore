@@ -5,3 +5,6 @@
 .vs/
 *.sln
 *.vcxproj*
+
+# Lof Files
+*.log

@@ -13,7 +13,8 @@ project "Sandbox"
 	includedirs
 	{
 		"%{prj.location}/source",
-		"%{IncludeDirectories.engine}"
+		"%{IncludeDirectories.engine}",
+		"%{IncludeDirectories.spdlog}"
 	}
 
 	dependson	"Engine"
