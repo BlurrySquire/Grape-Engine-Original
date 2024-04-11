@@ -1,13 +1,7 @@
-# VS Code files
-.vscode/settings.json
-
-# Build folders
-bin/
-bin-int/
+# Build folder
+.build
 
 # Visual Studio Files
 .vs/
-**.sln
-**.vcxproj
-**.vcxproj.user
-**.vcxproj.filters
+*.sln
+*.vcxproj*
