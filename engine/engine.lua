@@ -32,3 +32,10 @@ project "Engine"
 			"source/platform/linux/*.hpp",
 			"source/platform/linux/*.cpp"
 		}
+
+	filter "system:linux"
+		removefiles
+		{
+			"source/platform/windows/*.hpp",
+			"source/platform/windows/*.cpp"
+		}
