@@ -1,5 +1,6 @@
 IncludeDirectories = {}
 IncludeDirectories["engine"] = "%{wks.location}/engine/source"
+IncludeDirectories["vulkan"] = "$(VULKAN_SDK)/Include"
 
 workspace "Grape-Engine"
 	architecture	"x86_64"
