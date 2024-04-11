@@ -16,10 +16,10 @@ project "Engine"
 		"%{IncludeDirectories.vulkan}"
 	}
 
-	libdirs
-	{
-		"$(VULKAN_SDK)/Lib"
-	}
+    libdirs
+    {
+        path.join(os.getenv("VULKAN_SDK"), "Lib")
+    }
 
     links
 	{
