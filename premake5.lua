@@ -7,7 +7,7 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 project "Engine"
     location "engine/"
-    kind "SharedLib"
+    kind "StaticLib"
     language "C++"
     warnings "Extra"
 
