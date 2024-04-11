@@ -38,7 +38,7 @@ void Logger::WriteBacklog() {
     std::fstream file(this->m_filepath, std::ios::app);
 
     if (file.is_open()) {
-        int backlog_size = this->m_backlog.size();
+        size_t backlog_size = this->m_backlog.size();
         for (int i = 0; i < backlog_size; i++) {
             std::string text = this->m_backlog[i];
             file.write(text.c_str(), text.size());
@@ -65,13 +65,13 @@ void Logger::Info(const std::string& text) {
 }
 
 void Logger::Debug(const std::string& text) {
-    if (GRAPE_LOGGER_DEBUG == 1) {
+    if constexpr (GRAPE_LOGGER_DEBUG == 1) {
         this->LogMessage("[DEBUG]: " + text, LogLevel::DEBUG);
     }
 }
 
 void Logger::Trace(const std::string& text) {
-    if (GRAPE_LOGGER_DEBUG == 1) {
+    if constexpr (GRAPE_LOGGER_DEBUG == 1) {
         this->LogMessage("[TRACE]: " + text, LogLevel::TRACE);
     }
 }
