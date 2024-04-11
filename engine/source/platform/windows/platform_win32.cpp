@@ -1,4 +1,4 @@
-#include "platform.hpp"
+#include "../platform.hpp"
 
 #ifdef GRAPE_PLATFORM_WINDOWS
 

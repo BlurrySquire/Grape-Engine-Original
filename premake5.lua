@@ -1,65 +1,46 @@
+IncludeDirectories = {}
+IncludeDirectories["engine"] = "%{wks.location}/engine/source"
+IncludeDirectories["vulkan"] = "$(VULKAN_SDK)/Include"
+
 workspace "Grape-Engine"
-    architecture "x86_64"
-    configurations { "Debug", "Release" }
-    flags { "MultiProcessorCompile" }
+	architecture	"x86_64"
+	startproject	"Sandbox"
 
-outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
+	targetdir		".build/bin/%{cfg.system}/%{cfg.buildcfg}/%{prj.name}"
+	objdir			".build/obj/%{cfg.system}"
 
-project "Engine"
-    location "engine/"
-    kind "StaticLib"
-    language "C++"
-    warnings "Extra"
+	flags
+	{
+		"MultiProcessorCompile",
+		"FatalWarnings"
+	}
 
-    targetdir ("bin/" .. outputdir)
-    objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+	configurations
+	{
+		"Debug",
+		"Release"
+	}
+	
+	filter "configurations:Debug"
+		defines		"GRAPE_DEBUG"
+		optimize	"Off"
+		runtime		"Debug"
+		symbols		"Full"
 
-    files { "%{prj.name}/source/**.hpp", "%{prj.name}/source/**.cpp" }
+	filter "configurations:Release"
+		defines		"GRAPE_RELEASE"
+		optimize	"Full"
+		runtime		"Release"
+		symbols		"Off"
 
-    includedirs { "%{prj.name}/source", "%{VULKAN_SDK}/Include" }
-    libdirs { "$(VULKAN_SDK)/Lib" }
+	filter "system:windows"
+		systemversion	"latest"
+		staticruntime	"On"
+		
+		defines
+		{
+			"GRAPE_PLATFORM_WINDOWS"
+		}
 
-    links { "vulkan-1.lib" }
-
-    defines { "GRAPE_EXPORT" }
-
-    filter "system:windows"
-        cppdialect "C++20"
-        systemversion "latest"
-    
-    filter "configurations:Debug"
-        defines { "GRAPE_DEBUG" }
-        symbols "On"
-    
-    filter "configurations:Release"
-        defines { "GRAPE_RELEASE" }
-        optimize "On"
-
-project "Sandbox"
-    location "sandbox/"
-    kind "ConsoleApp"
-    language "C++"
-    warnings "Extra"
-
-    targetdir ("bin/" .. outputdir)
-    objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
-
-    files { "%{prj.name}/source/**.hpp", "%{prj.name}/source/**.cpp" }
-
-    includedirs { "%{prj.name}/source", "engine/source" }
-
-    links { "Engine" }
-
-    defines { "GRAPE_IMPORT" }
-
-    filter "system:windows"
-        cppdialect "C++20"
-        systemversion "latest"
-    
-    filter "configurations:Debug"
-        defines { "GRAPE_DEBUG" }
-        symbols "On"
-    
-    filter "configurations:Release"
-        defines { "GRAPE_RELEASE" }
-        optimize "On"
+include "engine/engine.lua"
+include "sandbox/sandbox.lua"

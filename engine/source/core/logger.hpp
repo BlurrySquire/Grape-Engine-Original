@@ -15,7 +15,7 @@
 
 class [[nodiscard]] Logger {
 private:
-    enum LogLevel {
+    enum LogLevel : uint8_t {
         FATAL = 0,
         ERROR = 1,
         WARN = 2,
