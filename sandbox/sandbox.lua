@@ -12,7 +12,7 @@ project "Sandbox"
 
 	includedirs
 	{
-		"source",
+		"%{prj.location}/source",
 		"%{IncludeDirectories.engine}"
 	}
 

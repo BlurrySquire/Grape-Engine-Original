@@ -12,13 +12,13 @@ project "Engine"
 
     includedirs
 	{
-		"source",
+		"%{prj.location}/source",
 		"%{VULKAN_SDK}/Include"
 	}
 
 	libdirs
 	{
-		"%{VULKAN_SDK}/Lib"
+		"$(VULKAN_SDK)/Lib"
 	}
 
     links
