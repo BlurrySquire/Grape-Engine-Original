@@ -20,3 +20,17 @@ std::string Platform::Time_GetLocal() {
 
     return time_str.str();
 }
+
+// NOTE: THE FOLLOWING FUNCTIONS ARE NOT YET IMPLEMENTED. THEY DO NOTHING.
+
+std::string Platform::Time_GetDate(bool day_first) {
+    return "";
+}
+
+std::string Platform::Time_GetLocalTime() {
+    return Platform::Time_GetLocal();
+}
+
+void Platform::Time_Sleep(int milliseconds) {
+    return;
+}
