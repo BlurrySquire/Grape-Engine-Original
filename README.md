@@ -6,8 +6,8 @@ A 2D Game Engine created with C++ and Vulkan.
 - Thank you to [Code Gains](https://www.youtube.com/@Code_Gains) for the idea and motivation to create my game engine. They created [DX11-Engine](https://github.com/Code-Gains/DX11-Engine). My game engine is in a very early state compared to Code Gain's engine.
 
 ## Versions of Tools
-- (Premake5 V5.0.0-beta2)[https://github.com/premake/premake-core/releases/tag/v5.0.0-beta2]
-- (Lua binaries V5.4.2)[https://luabinaries.sourceforge.net/]
+- [Premake5 V5.0.0-beta2](https://github.com/premake/premake-core/releases/tag/v5.0.0-beta2)
+- [Lua binaries V5.4.2](https://luabinaries.sourceforge.net/)
 
 ## To-Do
 My game engine is a bit of a mess. I am revamping everything before continuing development. The items in the list are in order of importance.
