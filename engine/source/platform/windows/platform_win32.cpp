@@ -7,30 +7,30 @@
 
 LRESULT CALLBACK WindowProc(HWND hwnd, uint32_t msg, WPARAM w_param, LPARAM l_param);
 
-std::string Platform::Time_GetLocal() {
-    SYSTEMTIME time;
-    std::stringstream time_str;
+void Platform::Time_Sleep(const uint32_t milliseconds) {
+    Sleep(milliseconds);
+}
 
+GRAPE::SystemTime Platform::Time_GetLocalTime() {
+    SYSTEMTIME time;
     GetLocalTime(&time);
 
-    time_str << "[";
-    time_str << time.wDay << "/" << time.wMonth << "/" << time.wYear;
-    time_str << ", " << time.wHour << ":" << time.wMinute << ":" << time.wSecond;
-    time_str << "]";
-
-    return time_str.str();
+    return GRAPE::SystemTime{
+        .hour = static_cast<uint8_t>(time.wHour),
+        .minute = static_cast<uint8_t>(time.wMinute),
+        .second = static_cast<uint8_t>(time.wSecond),
+        .millisecond = static_cast<uint8_t>(time.wMilliseconds)
+    };
 }
 
-// NOTE: THE FOLLOWING FUNCTIONS ARE NOT YET IMPLEMENTED. THEY DO NOTHING.
+GRAPE::SystemDate Platform::Time_GetDate() {
+    SYSTEMTIME time;
+    GetLocalTime(&time);
 
-std::string Platform::Time_GetDate(bool day_first) {
-    return "";
-}
-
-std::string Platform::Time_GetLocalTime() {
-    return Platform::Time_GetLocal();
-}
-
-void Platform::Time_Sleep(int milliseconds) {
-    return;
+    return GRAPE::SystemDate{
+        .day = time.wDay,
+        .month = time.wMonth,
+        .year = time.wYear,
+        .dayOfWeek = time.wDayOfWeek
+    };
 }

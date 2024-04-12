@@ -4,18 +4,34 @@
 
 #include <string>
 
+namespace GRAPE {
+    typedef struct {
+        uint8_t hour, minute, second, millisecond;
+    } SystemTime;
+
+    typedef struct {
+        uint16_t day, month, year, dayOfWeek;
+    } SystemDate;
+}
+
 class Platform {
 public:
     /*
-    * @brief Get the date and time [day/time/month hours:minutes:seconds]
-    * @returns std::string: the current date and time.
+    * @brief Sleeps the current thread for the specified amount of milliseconds.
+    * @param const uint64_t: Number of milliseconds to sleep for.
+    * @returns Nothing.
     */
-    static std::string Time_GetLocal();
+    static void Time_Sleep(const uint32_t milliseconds);
 
-    // NOTE: THE FOLLOWING FUNCTIONS ARE NOT YET IMPLEMENTED. THEY DO NOTHING.
+    /*
+    * @brief Returns the current hour, minute, second and millisecond.
+    * @returns SystemTime: the current time
+    */
+    static GRAPE::SystemTime Time_GetLocalTime();
 
-    // Planning on switching the time functions over to multiple functions.
-    static std::string Time_GetDate(bool day_first = true);
-    static std::string Time_GetLocalTime(); // Replacement for 'Time_GetLocal'.
-    static void Time_Sleep(int milliseconds);
+    /*
+    * @brief Returns a struct containing the current day, month, year and day of the week. Day of the week is an int.
+    * @returns SystemDate: the current date.
+    */
+    static GRAPE::SystemDate Time_GetDate();
 };
