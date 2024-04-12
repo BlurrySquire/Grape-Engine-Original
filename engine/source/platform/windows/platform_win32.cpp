@@ -16,10 +16,10 @@ GRAPE::SystemTime Platform::Time_GetLocalTime() {
     GetLocalTime(&time);
 
     return GRAPE::SystemTime{
-        .hour = static_cast<uint8_t>(time.wHour),
-        .minute = static_cast<uint8_t>(time.wMinute),
-        .second = static_cast<uint8_t>(time.wSecond),
-        .millisecond = static_cast<uint8_t>(time.wMilliseconds)
+        .hour = time.wHour,
+        .minute = time.wMinute,
+        .second = time.wSecond,
+        .millisecond = time.wMilliseconds
     };
 }
 

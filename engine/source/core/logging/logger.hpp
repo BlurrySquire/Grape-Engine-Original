@@ -3,6 +3,8 @@
 #include "logger_macros.hpp"
 #include <spdlog/spdlog.h>
 
+#include <spdlog/fmt/ostr.h>
+
 namespace GRAPE
 {
 	class [[nodiscard]] Logger final

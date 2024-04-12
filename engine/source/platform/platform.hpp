@@ -2,16 +2,32 @@
 
 #include "../defines.hpp"
 
+#include <iostream>
 #include <string>
 
 namespace GRAPE {
-    typedef struct {
-        uint8_t hour, minute, second, millisecond;
-    } SystemTime;
+    struct SystemTime {
+        uint16_t hour, minute, second, millisecond;
 
-    typedef struct {
+        friend std::ostream& operator<<(std::ostream& os, const SystemTime& st) {
+            return os << st.hour << ":" << st.minute << ":" << st.second << ":" << st.millisecond;
+        }
+
+    };
+
+    struct SystemDate {
         uint16_t day, month, year, dayOfWeek;
-    } SystemDate;
+
+        friend std::ostream& operator<<(std::ostream& os, const SystemDate& st) {
+            std::string days[7] = {
+                "Monday", "Tuesday", "Wednesday",
+                "Thursday", "Friday", "Saturday",
+                "Sunday"
+            };
+
+            return os << days[st.dayOfWeek] << " " << st.day << "." << st.month << "." << st.year;
+        }
+    };
 }
 
 class Platform {

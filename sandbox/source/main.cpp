@@ -23,8 +23,8 @@ int main(void) {
     GRAPE::SystemDate date = Platform::Time_GetDate();
     GRAPE::SystemTime time = Platform::Time_GetLocalTime();
 
-    GRAPE_LOG_INFO("Date: {0}/{1}/{2}\nDay Of Week: {3}", date.day, date.month, date.year, date.dayOfWeek);
-    GRAPE_LOG_INFO("Time: {0}:{1}:{2}:{3}", time.hour, time.minute, time.second, time.millisecond);
+    GRAPE_LOG_INFO(date);
+    GRAPE_LOG_INFO(time);
 
     return EXIT_SUCCESS;
 }
