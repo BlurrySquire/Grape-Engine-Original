@@ -43,7 +43,7 @@ public:
     * @brief Returns the current hour, minute, second and millisecond.
     * @returns SystemTime: the current time
     */
-    static GRAPE::SystemTime Time_GetLocalTime();
+    static GRAPE::SystemTime Time_GetLocal();
 
     /*
     * @brief Returns a struct containing the current day, month, year and day of the week. Day of the week is an int.

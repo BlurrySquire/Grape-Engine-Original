@@ -11,7 +11,7 @@ void Platform::Time_Sleep(const uint32_t milliseconds) {
     Sleep(milliseconds);
 }
 
-GRAPE::SystemTime Platform::Time_GetLocalTime() {
+GRAPE::SystemTime Platform::Time_GetLocal() {
     SYSTEMTIME time;
     GetLocalTime(&time);
 
