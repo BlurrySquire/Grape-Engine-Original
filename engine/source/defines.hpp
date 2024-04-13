@@ -13,6 +13,9 @@ Changes Made:
 
 #include <cstdint>
 
+using float32_t = float;
+using float64_t = double;
+
 // Static Assertion
 #if defined(__clang__) || defined(__gcc__)
     #define STATIC_ASSERT _Static_assert
