@@ -21,7 +21,7 @@ int main(void) {
 
     // Print the date and time
     GRAPE::SystemDate date = Platform::Time_GetDate();
-    GRAPE::SystemTime time = Platform::Time_GetLocalTime();
+    GRAPE::SystemTime time = Platform::Time_GetLocal();
 
     GRAPE_LOG_INFO(date);
     GRAPE_LOG_INFO(time);
