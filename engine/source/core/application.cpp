@@ -2,12 +2,10 @@
 
 namespace GRAPE {
 	Application::Application(std::string title, uint32_t width, uint32_t height)
-	: m_title(title), m_width(width), m_height(height) {
-		this->m_logger = new Logger("grape-engine_log");
+	: m_logger("grape-engine_log"), m_title(title), m_width(width), m_height(height) {
 	}
 
 	Application::~Application() {
-
 	}
 
 	void Application::TimeSleep(const uint32_t milliseconds) {

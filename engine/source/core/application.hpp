@@ -7,7 +7,7 @@
 namespace GRAPE {
 	class Application {
 	private:
-		Logger* m_logger;
+		Logger m_logger;
 
 		std::string m_title;
 		uint32_t m_width, m_height;
