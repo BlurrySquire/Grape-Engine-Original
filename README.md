@@ -14,10 +14,10 @@ My game engine is a bit of a mess. I am revamping everything before continuing d
 - [X] Revamp the logger.
 - [X] Revamp the platform layer.
 - [X] Switch over to Premake for the build system (Wasn't fun).
-- [ ] Fix the outdated documentation.
+- [X] Fix the outdated documentation.
+- [X] Create an application layer.
 - [ ] Windows platform layer. (W.I.P)
 - [ ] Linux platform layer.
-- [ ] Create an application layer.
 - [ ] Work on LUA integration using [Sol2](https://github.com/ThePhD/sol2).
 
 ## Want to contribute?
