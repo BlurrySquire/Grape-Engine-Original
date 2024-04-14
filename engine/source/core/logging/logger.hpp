@@ -5,10 +5,8 @@
 
 #include <spdlog/fmt/ostr.h>
 
-namespace GRAPE
-{
-	class [[nodiscard]] Logger final
-	{
+namespace GRAPE {
+	class [[nodiscard]] Logger final {
 	public:
 		Logger() noexcept = delete;
 
