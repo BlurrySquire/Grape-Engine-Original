@@ -2,9 +2,8 @@
 #include <source/platform/platform.hpp> // TEMPORARY
 
 int main(void) {
-    // Create a logger and give it a file name. (file extension is '.log').
-    // The logger creation will be handled by the application layer.
-    GRAPE::Logger logger("test");
+    // Create an application
+    GRAPE::Application application("Grape Engine Sandbox", 1280, 720);
 
     // Test all the logger message types
     GRAPE_LOG_TRACE("TRACE");
