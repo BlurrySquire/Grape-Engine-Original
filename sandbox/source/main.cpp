@@ -14,17 +14,5 @@ int main(void) {
     GRAPE_LOG_ERROR("ERROR");
     GRAPE_LOG_CRITICAL("CRITICAL\n");
 
-    GRAPE_LOG_INFO("Sleeping for 1000ms (1 second)\n");
-
-    // Sleep for 1 second
-    Platform::Time_Sleep(1000);
-
-    // Print the date and time
-    GRAPE::SystemDate date = Platform::Time_GetDate();
-    GRAPE::SystemTime time = Platform::Time_GetLocal();
-
-    GRAPE_LOG_INFO(date);
-    GRAPE_LOG_INFO(time);
-
     return EXIT_SUCCESS;
 }
