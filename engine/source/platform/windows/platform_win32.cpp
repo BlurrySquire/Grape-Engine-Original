@@ -5,8 +5,6 @@
 
 #include <sstream>
 
-LRESULT CALLBACK WindowProc(HWND hwnd, uint32_t msg, WPARAM w_param, LPARAM l_param);
-
 void Platform::Time_Sleep(const uint32_t milliseconds) {
     Sleep(milliseconds);
 }

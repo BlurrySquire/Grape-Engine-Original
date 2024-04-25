@@ -3,18 +3,20 @@
 #include "../defines.hpp"
 #include "logging/logger.hpp"
 #include "../platform/platform.hpp"
+#include "../platform/window.hpp"
 
 namespace GRAPE {
 	class Application {
 	private:
 		Logger m_logger;
+		Window* m_window;
 
-		std::string m_title;
+		std::wstring m_title;
 		uint32_t m_width, m_height;
 	public:
 		/*
 		* @brief Creates a grape application on construction.
-		* @param std::string: The title of the application.
+		* @param std::wstring: The title of the application.
 		* @param uint32_t: The width of the rendering canvas.
 		* @param uint32_t: The height of the rendering canvas.
 		* @returns Nothing
@@ -23,7 +25,7 @@ namespace GRAPE {
 		* @fullname: GRAPE::Application::Application
 		* @qualifier: Nothing
 		*/
-		Application(std::string title, uint32_t width, uint32_t height);
+		Application(std::wstring title, uint32_t width, uint32_t height);
 
 		/*
 		* @brief Exits the application upon destruction.

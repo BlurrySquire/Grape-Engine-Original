@@ -1,9 +1,8 @@
 #include <grape.hpp>
-#include <source/platform/platform.hpp> // TEMPORARY
 
 int main(void) {
     // Create an application
-    GRAPE::Application application("Grape Engine Sandbox", 1280, 720);
+    GRAPE::Application application(L"Grape Engine Sandbox", 1280, 720);
 
     // Test all the logger message types
     GRAPE_LOG_TRACE("TRACE");
@@ -12,6 +11,10 @@ int main(void) {
     GRAPE_LOG_WARN("WARN");
     GRAPE_LOG_ERROR("ERROR");
     GRAPE_LOG_CRITICAL("CRITICAL\n");
+
+    while (true) {
+        // KEEP WINDOW OPEN
+    }
 
     return EXIT_SUCCESS;
 }
