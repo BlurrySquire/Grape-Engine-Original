@@ -10,12 +10,11 @@ A 2D Game Engine created with C++ and Vulkan.
 - [Lua binaries V5.4.2](https://luabinaries.sourceforge.net/)
 
 ## To-Do
-My game engine is a bit of a mess. I am revamping everything before continuing development. The items in the list are in order of importance.
-- [X] Revamp the logger.
-- [X] Revamp the platform layer.
-- [X] Switch over to Premake for the build system (Wasn't fun).
-- [X] Fix the outdated documentation.
+My game engine is less of a mess. I have removed some items from the checklist that have already been completed.
 - [X] Create an application layer.
+- [X] Open a window on Windows platform layer.
+- [ ] Handle window events on Windows platform layer.
+- [ ] Event handling system integrated with application layer.
 - [ ] Windows platform layer. (W.I.P)
 - [ ] Linux platform layer.
 - [ ] Work on LUA integration using [Sol2](https://github.com/ThePhD/sol2).
