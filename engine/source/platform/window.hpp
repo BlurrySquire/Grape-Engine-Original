@@ -14,6 +14,8 @@ public:
 	Window(std::wstring title, int width, int height);
 	~Window();
 
+	void PollMessages();
+
 	std::wstring GetWinTitle();
 	int GetWinWidth();
 	int GetWinHeight();

@@ -10,6 +10,10 @@ namespace GRAPE {
 		delete m_window;
 	}
 
+	void Application::ProcessEvents() {
+		m_window->PollMessages();
+	}
+
 	void Application::TimeSleep(const uint32_t milliseconds) {
 		Platform::Time_Sleep(milliseconds);
 	}

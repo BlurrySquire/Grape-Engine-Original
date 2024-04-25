@@ -51,6 +51,15 @@ Window::~Window() {
 	UnregisterClass(wndclass.lpszClassName, wndclass.hInstance);
 }
 
+void Window::PollMessages() {
+	MSG message{};
+
+	while (PeekMessage(&message, nullptr, 0, 0, PM_REMOVE)) {
+		TranslateMessage(&message);
+		DispatchMessage(&message);
+	}
+}
+
 std::wstring Window::GetWinTitle() {
 	return m_title;
 }

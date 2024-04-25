@@ -13,7 +13,7 @@ int main(void) {
     GRAPE_LOG_CRITICAL("CRITICAL\n");
 
     while (true) {
-        // KEEP WINDOW OPEN
+        application.ProcessEvents();
     }
 
     return EXIT_SUCCESS;

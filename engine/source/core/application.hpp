@@ -38,6 +38,16 @@ namespace GRAPE {
 		~Application();
 
 		/*
+		* @brief Process the application events
+		* @returns Nothing
+		* 
+		* @method: ProcessEvents
+		* @fullname: GRAPE::Application::ProcessEvents
+		* @qualifier: Nothing
+		*/
+		void ProcessEvents();
+
+		/*
 		* @brief Wrapper for the platform layer method 'Platform::Time_Sleep'.
 		* @param uint32_t: The number of milliseconds to sleep for.
 		* @returns Nothing
