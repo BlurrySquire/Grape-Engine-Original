@@ -12,13 +12,9 @@ A 2D Game Engine created with C++ and Vulkan.
 - I have removed the Lua binaries as lua support is now a 'maybe'. It is much easier to support C++ as it is the engine's native language, so Lua support will be put on hold (not that I even started work on it yet 💀).
 
 ## To-Do
-My game engine is less of a mess. I have removed some items from the checklist that have already been completed.
 - [X] Create an application layer.
-- [X] Open a window on Windows platform layer.
-- [ ] Handle window events on Windows platform layer.
+- [ ] Complete engine restructure (includes: switching to glfw and replacing platform layers).
 - [ ] Event handling system integrated with application layer.
-- [ ] Windows platform layer. (W.I.P)
-- [ ] Linux platform layer.
 
 ## Want to contribute?
 - Make a fork of the main repo and add your changes.
