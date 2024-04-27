@@ -89,5 +89,11 @@ namespace GRAPE {
 		* @returns Nothing.
 		*/
 		void UpdateWinSize(const int& width, const int& height);
+
+		/*
+		* @brief Returns the current application info.
+		* @returns AppInfo: the application info as a struct.
+		*/
+		AppInfo GetApplicationInfo();
 	};
 }

@@ -9,13 +9,13 @@ namespace GRAPE {
 	}
 
 	void Application::Run() {
-		GRAPE_LOG_TRACE("Application started.");
+		GRAPE_LOG_INFO("Application started.");
 
 		while (m_window.PollMessages()) {
 			// Loop application
 		}
 
-		GRAPE_LOG_TRACE("Application closed.");
+		GRAPE_LOG_INFO("Application closed.");
 	}
 
 	void Application::TimeSleep(const uint32_t milliseconds) {
@@ -39,10 +39,22 @@ namespace GRAPE {
 	}
 
 	void Application::UpdateWinTitle(const std::string& title) {
+		m_appinfo.win_title = title;
 		m_window.UpdateTitle(title);
 	}
 
 	void Application::UpdateWinSize(const int& width, const int& height) {
+		if (width == NULL && height != NULL) {
+			m_appinfo.win_height = height;
+		}
+		else if (width != NULL && height == NULL) {
+			m_appinfo.win_width = width;
+		}
+
 		m_window.UpdateSize(width, height);
+	}
+
+	AppInfo Application::GetApplicationInfo() {
+		return m_appinfo;
 	}
 }
