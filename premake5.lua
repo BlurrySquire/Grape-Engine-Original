@@ -1,7 +1,8 @@
 IncludeDirectories = {}
 IncludeDirectories["engine"] = "%{wks.location}/engine"
-IncludeDirectories["spdlog"] = "%{wks.location}/submodules/spdlog/include"
 IncludeDirectories["vulkan"] = path.join(os.getenv("VULKAN_SDK"), "Include")
+IncludeDirectories["spdlog"] = "%{wks.location}/submodules/spdlog/include"
+IncludeDirectories["glfw"]   = "%{wks.location}/submodules/glfw/include"
 
 workspace "Grape-Engine"
 	architecture	"x86_64"
@@ -46,3 +47,5 @@ workspace "Grape-Engine"
 
 include "engine/engine.lua"
 include "sandbox/sandbox.lua"
+
+include "submodules/glfw_premake5.lua"

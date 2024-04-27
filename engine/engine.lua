@@ -14,17 +14,20 @@ project "Engine"
 	{
 		"%{prj.location}/source",
 		"%{IncludeDirectories.spdlog}",
-		"%{IncludeDirectories.vulkan}"
+		"%{IncludeDirectories.vulkan}",
+		"%{IncludeDirectories.glfw}"
 	}
 
 	libdirs
 	{
-		path.join(os.getenv("VULKAN_SDK"), "Lib")
+		path.join(os.getenv("VULKAN_SDK"), "Lib"),
+		"%{wks.location}/.build/bin/GLFW"
 	}
 
     links
 	{
-		"vulkan-1"
+		"vulkan-1",
+		"GLFW"
 	}
 
 	filter "system:windows"
