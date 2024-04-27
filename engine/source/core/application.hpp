@@ -1,7 +1,7 @@
 #pragma once
 
 #include "../defines.hpp"
-#include "logging/logger.hpp"
+#include "logger.hpp"
 #include "../platform/platform.hpp"
 #include "../platform/window.hpp"
 

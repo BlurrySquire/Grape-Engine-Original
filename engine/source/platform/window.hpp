@@ -3,7 +3,7 @@
 #include <string>
 
 #include "../defines.hpp"
-#include "../core/logging/logger.hpp"
+#include "../core/logger.hpp"
 
 class Window {
 private:
