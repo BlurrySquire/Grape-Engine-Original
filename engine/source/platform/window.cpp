@@ -9,6 +9,11 @@ void glfw_WindowErrorCallback(int error_code, const char* description) {
 }
 
 Window::Window(const GRAPE::AppInfo& appinfo) {
+	GRAPE_LOG_TRACE(
+		"Initializing GLFW v{0}.{1}.{2}.",
+		GLFW_VERSION_MAJOR, GLFW_VERSION_MINOR, GLFW_VERSION_REVISION
+	);
+
 	glfwSetErrorCallback(glfw_WindowErrorCallback);
 
 	if (!glfwInit()) {
@@ -25,7 +30,15 @@ Window::Window(const GRAPE::AppInfo& appinfo) {
 		glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
 	}
 
+	GRAPE_LOG_TRACE(
+		"Opening {0} window '{1}' of size ({2}x{3}).",
+		appinfo.resizable ? "resizable" : "non-resizable",
+		appinfo.win_title,
+		appinfo.win_width, appinfo.win_height
+	);
+
 	m_window = glfwCreateWindow(appinfo.win_width, appinfo.win_height, appinfo.win_title.c_str(), NULL, NULL);
+
 	if (m_window == NULL) {
 		GRAPE_LOG_CRITICAL(
 			"GLFW v{0}.{1}.{2} window creation failed.",
