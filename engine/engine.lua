@@ -14,8 +14,8 @@ project "Engine"
 	{
 		"%{prj.location}/source",
 		"%{IncludeDirectories.spdlog}",
-		"%{IncludeDirectories.vulkan}",
-		"%{IncludeDirectories.glfw}"
+		"%{IncludeDirectories.glfw}",
+		"%{IncludeDirectories.vulkan}"
 	}
 
 	libdirs

@@ -14,6 +14,7 @@ project "Sandbox"
 	{
 		"%{prj.location}/source",
 		"%{IncludeDirectories.engine}",
+		"%{IncludeDirectories.glfw}",
 		"%{IncludeDirectories.spdlog}"
 	}
 
