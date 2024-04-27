@@ -5,23 +5,22 @@
 #include "../defines.hpp"
 #include "../core/logger.hpp"
 
+#include <GLFW/glfw3.h>
+
 class Window {
 private:
-	std::wstring m_title;
-	int m_width, m_height;
-	int m_x, m_y;
+	GLFWwindow* m_window;
 public:
-	Window(std::wstring title, int width, int height);
+	Window(const GRAPE::AppInfo& appinfo);
 	~Window();
 
-	void PollMessages();
+	void UpdateTitle(const std::string& title);
+	void UpdateSize(const int& width, const int& height);
 
-	std::wstring GetWinTitle();
-	int GetWinWidth();
-	int GetWinHeight();
+	std::string GetTitle();
+	void GetSize(int* width, int* height);
+
+	bool PollMessages();
+
+	void ProcessEvents();
 };
-
-#if defined(GRAPE_PLATFORM_WINDOWS)
-	#include <Windows.h>
-	LRESULT CALLBACK WindowProc(HWND hwnd, uint32_t msg, WPARAM w_param, LPARAM l_param);
-#endif

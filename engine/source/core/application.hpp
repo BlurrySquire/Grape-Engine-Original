@@ -1,5 +1,7 @@
 #pragma once
 
+#include <string>
+
 #include "../defines.hpp"
 #include "logger.hpp"
 #include "../platform/platform.hpp"
@@ -9,23 +11,18 @@ namespace GRAPE {
 	class Application {
 	private:
 		Logger m_logger;
-		Window* m_window;
-
-		std::wstring m_title;
-		uint32_t m_width, m_height;
+		Window m_window;
+		AppInfo m_appinfo;
 	public:
 		/*
 		* @brief Creates a grape application on construction.
-		* @param std::wstring: The title of the application.
-		* @param uint32_t: The width of the rendering canvas.
-		* @param uint32_t: The height of the rendering canvas.
+		* @param GRAPE::AppInfo: a struct containing application info.
 		* @returns Nothing
 		* 
 		* @method: Application
 		* @fullname: GRAPE::Application::Application
-		* @qualifier: Nothing
 		*/
-		Application(std::wstring title, uint32_t width, uint32_t height);
+		Application(const AppInfo& appinfo);
 
 		/*
 		* @brief Exits the application upon destruction.
@@ -33,19 +30,17 @@ namespace GRAPE {
 		*
 		* @method: ~Application
 		* @fullname: GRAPE::Application::~Application
-		* @qualifier: Nothing
 		*/
 		~Application();
 
 		/*
-		* @brief Process the application events
+		* @brief Application entry point.
 		* @returns Nothing
 		* 
-		* @method: ProcessEvents
-		* @fullname: GRAPE::Application::ProcessEvents
-		* @qualifier: Nothing
+		* @method: Run
+		* @fullname: GRAPE::Application::Run
 		*/
-		void ProcessEvents();
+		void Run();
 
 		/*
 		* @brief Wrapper for the platform layer method 'Platform::Time_Sleep'.
@@ -65,5 +60,34 @@ namespace GRAPE {
 		* @returns struct containing day, week, month, year, and day of week.
 		*/
 		SystemDate GetLocalDate();
+
+		/*
+		* @brief Wrapper for the window class method 'Window::GetTitle'.
+		* @returns std::string: The window title.
+		*/
+		std::string GetWinTitle();
+
+		/*
+		* @brief Wrapper for window class method 'Window::GetSize'.
+		* @param int*: Pointer to an integer to store the width in.
+		* @param int*: Pointer to an integer to store the height in.
+		* @returns Nothing.
+		*/
+		void GetWinSize(int* width, int* height);
+
+		/*
+		* @brief Wrapper for window class method 'Window::UpdateTitle'.
+		* @param const std::string&: The new window title.
+		* @returns Nothing.
+		*/
+		void UpdateWinTitle(const std::string& title);
+
+		/*
+		* @brief Wrapper for window class method 'Window::UpdateSize'
+		* @param const int&: The width of the window, NULL if not updated.
+		* @param const int&: The height of the window, NULL if not updated.
+		* @returns Nothing.
+		*/
+		void UpdateWinSize(const int& width, const int& height);
 	};
 }

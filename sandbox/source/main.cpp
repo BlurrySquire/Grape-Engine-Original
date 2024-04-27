@@ -1,20 +1,31 @@
 #include <grape.hpp>
 
 int main(void) {
-    // Create an application
-    GRAPE::Application application(L"Grape Engine Sandbox", 1280, 720);
+    GRAPE::AppInfo app_info = {
+        .win_title = "Grape-Engine Sandbox",
+        .win_width = 1280,
+        .win_height = 720,
+        .resizable = false
+    };
 
-    // Test all the logger message types
-    GRAPE_LOG_TRACE("TRACE");
-    GRAPE_LOG_DEBUG("DEBUG");
-    GRAPE_LOG_INFO("INFO");
-    GRAPE_LOG_WARN("WARN");
-    GRAPE_LOG_ERROR("ERROR");
-    GRAPE_LOG_CRITICAL("CRITICAL\n");
+    GRAPE::Application application(app_info);
 
-    while (true) {
-        application.ProcessEvents();
-    }
+    int width, height = 0;
+    application.GetWinSize(&width, &height);
+
+    std::string title = application.GetWinTitle();
+
+    GRAPE_LOG_INFO(
+        "Window Title: \"{0}\"",
+        title
+    );
+
+    GRAPE_LOG_INFO(
+        "Window Size: {0}x{1}",
+        width, height
+    );
+
+    application.Run();
 
     return EXIT_SUCCESS;
 }

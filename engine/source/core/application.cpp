@@ -1,17 +1,21 @@
 #include "application.hpp"
 
 namespace GRAPE {
-	Application::Application(std::wstring title, uint32_t width, uint32_t height)
-	: m_logger("grape-engine_log"), m_title(title), m_width(width), m_height(height) {
-		m_window = new Window(m_title, m_width, m_height);
+	Application::Application(const AppInfo& appinfo)
+	: m_appinfo(appinfo), m_logger("grape-engine_log"), m_window(appinfo) {
 	}
 
 	Application::~Application() {
-		delete m_window;
 	}
 
-	void Application::ProcessEvents() {
-		m_window->PollMessages();
+	void Application::Run() {
+		GRAPE_LOG_TRACE("Application started.");
+
+		while (m_window.PollMessages()) {
+			// Loop application
+		}
+
+		GRAPE_LOG_TRACE("Application closed.");
 	}
 
 	void Application::TimeSleep(const uint32_t milliseconds) {
@@ -24,5 +28,21 @@ namespace GRAPE {
 
 	SystemDate Application::GetLocalDate() {
 		return Platform::Time_GetDate();
+	}
+
+	std::string Application::GetWinTitle() {
+		return m_window.GetTitle();
+	}
+
+	void Application::GetWinSize(int* width, int* height) {
+		return m_window.GetSize(width, height);
+	}
+
+	void Application::UpdateWinTitle(const std::string& title) {
+		m_window.UpdateTitle(title);
+	}
+
+	void Application::UpdateWinSize(const int& width, const int& height) {
+		m_window.UpdateSize(width, height);
 	}
 }
