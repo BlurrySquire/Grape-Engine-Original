@@ -76,6 +76,10 @@ void Window::GetSize(int* width, int* height) {
 	glfwGetWindowSize(m_window, width, height);
 }
 
+void Window::CloseWindow() {
+	this->~Window();
+}
+
 void Window::SetupEvents(const std::function<void(const GRAPE::Event&)>& callback_func) {
 	GRAPE_LOG_TRACE(
 		"Window: Initialising Events System."

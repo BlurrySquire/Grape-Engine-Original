@@ -15,7 +15,8 @@ namespace GRAPE {
 			} break;
 
 			case GRAPE::EventType::WINDOW_CLOSE: {
-				GRAPE_LOG_INFO("Application: Event received. EvenType: Window Close.");
+				GRAPE_LOG_INFO("Application: Event received. EventType: Window Close.");
+				m_window.CloseWindow();
 			} break;
 		}
 	}

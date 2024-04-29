@@ -22,6 +22,8 @@ public:
 	std::string GetTitle();
 	void GetSize(int* width, int* height);
 
+	void CloseWindow();
+
 	void SetupEvents(const std::function<void(const GRAPE::Event& event)>& callback_func);
 	void PollEvents();
 };
