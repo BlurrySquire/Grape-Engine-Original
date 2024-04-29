@@ -8,11 +8,26 @@ namespace GRAPE {
 	Application::~Application() {
 	}
 
+	void Application::HandleEvents(const GRAPE::Event& event) {
+		switch (event.type) {
+			case GRAPE::EventType::NONE: {
+				GRAPE_LOG_INFO("Application: Event received. EventType: NULL, Test Event.");
+			} break;
+
+			case GRAPE::EventType::WINDOW_CLOSE: {
+				GRAPE_LOG_INFO("Application: Event received. EvenType: Window Close.");
+			} break;
+		}
+	}
+
 	void Application::Run() {
 		GRAPE_LOG_INFO("Application started.");
 
-		while (m_window.PollMessages()) {
-			// Loop application
+		m_window.SetupEvents([this](const GRAPE::Event& ev) { this->HandleEvents(ev); });
+
+		m_isrunning = true;
+		while (m_isrunning) {
+			m_window.PollEvents();
 		}
 
 		GRAPE_LOG_INFO("Application closed.");

@@ -10,7 +10,7 @@ void glfw_WindowErrorCallback(int error_code, const char* description) {
 
 Window::Window(const GRAPE::AppInfo& appinfo) {
 	GRAPE_LOG_TRACE(
-		"Initializing GLFW v{0}.{1}.{2}.",
+		"Window: Initializing GLFW v{0}.{1}.{2}.",
 		GLFW_VERSION_MAJOR, GLFW_VERSION_MINOR, GLFW_VERSION_REVISION
 	);
 
@@ -18,7 +18,7 @@ Window::Window(const GRAPE::AppInfo& appinfo) {
 
 	if (!glfwInit()) {
 		GRAPE_LOG_CRITICAL(
-			"GLFW v{0}.{1}.{2} init failed.",
+			"Window: GLFW v{0}.{1}.{2} init failed.",
 			GLFW_VERSION_MAJOR, GLFW_VERSION_MINOR, GLFW_VERSION_REVISION
 		);
 	}
@@ -31,7 +31,7 @@ Window::Window(const GRAPE::AppInfo& appinfo) {
 	}
 
 	GRAPE_LOG_TRACE(
-		"Opening {0} window '{1}' of size ({2}x{3}).",
+		"Window: Opening {0} window '{1}' of size ({2}x{3}).",
 		appinfo.resizable ? "resizable" : "non-resizable",
 		appinfo.win_title,
 		appinfo.win_width, appinfo.win_height
@@ -41,7 +41,7 @@ Window::Window(const GRAPE::AppInfo& appinfo) {
 
 	if (m_window == NULL) {
 		GRAPE_LOG_CRITICAL(
-			"GLFW v{0}.{1}.{2} window creation failed.",
+			"Window: GLFW v{0}.{1}.{2} window creation failed.",
 			GLFW_VERSION_MAJOR, GLFW_VERSION_MINOR, GLFW_VERSION_REVISION
 		);
 	}
@@ -76,17 +76,33 @@ void Window::GetSize(int* width, int* height) {
 	glfwGetWindowSize(m_window, width, height);
 }
 
-bool Window::PollMessages() {
+void Window::SetupEvents(const std::function<void(const GRAPE::Event&)>& callback_func) {
+	GRAPE_LOG_TRACE(
+		"Window: Initialising Events System."
+	);
+
+	m_event_callback = callback_func;
+
+	// To-Do:
+	//	- Setup GLFW callbacks for events.
+
+	// Test Event
+	m_event_callback.operator()(
+		GRAPE::Event{
+			.type = GRAPE::EventType::NONE
+		}
+	);
+}
+
+void Window::PollEvents() {
 	glfwPollEvents();
 
 	if (glfwWindowShouldClose(m_window)) {
-		return false;
+		glfwSetWindowShouldClose(m_window, GLFW_FALSE);
+		m_event_callback.operator()(
+			GRAPE::Event{
+				.type = GRAPE::EventType::WINDOW_CLOSE
+			}
+		);
 	}
-	else {
-		return true;
-	}
-}
-
-void Window::ProcessEvents() {
-
 }

@@ -13,6 +13,10 @@ namespace GRAPE {
 		Logger m_logger;
 		Window m_window;
 		AppInfo m_appinfo;
+
+		bool m_isrunning = false;
+
+		void HandleEvents(const GRAPE::Event& event);
 	public:
 		/*
 		* @brief Creates a grape application on construction.
