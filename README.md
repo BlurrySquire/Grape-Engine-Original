@@ -13,7 +13,7 @@ A 2D Game Engine created with C++ and Vulkan.
 
 ## To-Do
 - [X] Create an application layer.
-- [ ] Complete engine restructure (includes: switching to glfw and replacing platform layers).
+- [X] Complete engine restructure (includes: switching to glfw for windowing).
 - [ ] Event handling system integrated with application layer.
 
 ## Want to contribute?
