@@ -1,26 +1,30 @@
-# Grape Engine
-A 2D Game Engine created with C++ and Vulkan.
+<h1 align=center>Grape Engine</h1>
+<p align=center>
+  Grape engine is a work-in-progress 2D game engine created in C++. It uses Vulkan for rendering. However, I <b><i>might</i></b> add OpenGL support for low-end devices.
+</p>
 
-## Attributions
-- Thank you to [Travis Vroman](https://github.com/travisvroman) for the ``defines.hpp`` file. It was designed for use with C and [Kohi](https://github.com/travisvroman/kohi), I modified it to better suit my engine and C++. If you would like a list of the modifications made they are in the top comment of ``engine/source/defines.hpp``. I also took the platform layer design from [Kohi](https://github.com/travisvroman/kohi) by [Travis Vroman](https://github.com/travisvroman) and modified it for use with my game engine.
-- Thank you to [Code Gains](https://www.youtube.com/@Code_Gains) for the idea and motivation to create my game engine. They created [DX11-Engine](https://github.com/Code-Gains/DX11-Engine). My game engine is in a very early state compared to Code Gain's engine.
+<h2 align=center>Attributions</h2>
+<p align=center>
+  Thank you to <a href="https://github.com/travisvroman">Travis Vroman</a> for the <strong>'engine/source/defines.hpp'</strong> file. It was design for use with C and <a href="https://github.com/travisvroman/kohi">Kohi</a>, I modified it to better suit my engine and C++. A list of the modifications are in a comment at the top of the file.
+  <br><br>
+  Thank you to <a href="https://www.youtube.com/@Code_Gains">Code Gains</a> for the idea and motivation to create my engine. They are working on <a href="https://github.com/Code-Gains/DX11-Engine">DX11-Engine</a>.
+</p>
 
-## Versions of Tools
-- [Premake5 V5.0.0-beta2](https://github.com/premake/premake-core/releases/tag/v5.0.0-beta2)
+<h2>Quick Access</h2>
 
-## NOTE
-- I have removed the Lua binaries as lua support is now a 'maybe'. It is much easier to support C++ as it is the engine's native language, so Lua support will be put on hold (not that I even started work on it yet 💀).
-
-## To-Do
-- [X] Create an application layer.
-- [X] Complete engine restructure (includes: switching to glfw for windowing).
-- [ ] Event handling system integrated with application layer.
-
-## Want to contribute?
-- Make a fork of the main repo and add your changes.
-- Then make a pull request. The maintainers (currently only me) will review the pull request and either merge or decline it. If we decline it we will give a reason for it.
-
-## Documentation (Work-In-Progress)
 - [Main Documentation](https://github.com/BlurrySquire/Grape-Engine/blob/main/documentation/documentation.md)
 - [API Docs](https://github.com/BlurrySquire/Grape-Engine/blob/main/documentation/api_documentation.md)
 - [Building Guide](https://github.com/BlurrySquire/Grape-Engine/blob/main/documentation/building.md)
+
+<h2>To-Do</h2>
+
+- [X] Create an application layer.
+- [X] Engine restructure.
+- [X] Event system.
+- [ ] Keyboard and mouse events.
+- [ ] Linux platform layer.
+
+<h2 align=center>Latest Achievement</h2>
+<h3 align=center>Beginning of an event system</h3>
+
+![Image showing the achievement](https://github.com/BlurrySquire/Grape-Engine/assets/114335081/e56646b6-3b22-434c-9823-61d6773ac26e)
