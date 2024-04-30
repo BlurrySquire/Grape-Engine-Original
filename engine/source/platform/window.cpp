@@ -48,8 +48,7 @@ Window::Window(const GRAPE::AppInfo& appinfo) {
 }
 
 Window::~Window() {
-	glfwDestroyWindow(m_window);
-	glfwTerminate();
+	this->CloseWindow();
 }
 
 void Window::UpdateTitle(const std::string& title) {
@@ -77,7 +76,9 @@ void Window::GetSize(int* width, int* height) {
 }
 
 void Window::CloseWindow() {
-	this->~Window();
+	GRAPE_LOG_TRACE("Window: Closing Window.");
+	glfwDestroyWindow(m_window);
+	glfwTerminate();
 }
 
 void Window::SetupEvents(const std::function<void(const GRAPE::Event&)>& callback_func) {
@@ -103,6 +104,7 @@ void Window::PollEvents() {
 
 	if (glfwWindowShouldClose(m_window)) {
 		glfwSetWindowShouldClose(m_window, GLFW_FALSE);
+
 		m_event_callback.operator()(
 			GRAPE::Event{
 				.type = GRAPE::EventType::WINDOW_CLOSE
