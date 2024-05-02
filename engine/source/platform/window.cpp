@@ -23,6 +23,11 @@ Window::Window(const GRAPE::AppInfo& appinfo) {
 		);
 	}
 
+	GRAPE_LOG_INFO(
+		"Window: GLFW v{0}.{1}.{2} init complete.",
+		GLFW_VERSION_MAJOR, GLFW_VERSION_MINOR, GLFW_VERSION_REVISION
+	);
+
 	if (appinfo.resizable == true) {
 		glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
 	}
@@ -45,9 +50,14 @@ Window::Window(const GRAPE::AppInfo& appinfo) {
 			GLFW_VERSION_MAJOR, GLFW_VERSION_MINOR, GLFW_VERSION_REVISION
 		);
 	}
+
+	GRAPE_LOG_INFO(
+		"Window: Opened window."
+	);
 }
 
 Window::~Window() {
+	GRAPE_LOG_TRACE("Window: Closing Window.");
 	glfwDestroyWindow(m_window);
 	glfwTerminate();
 }
@@ -74,11 +84,6 @@ std::string Window::GetTitle() {
 
 void Window::GetSize(int* width, int* height) {
 	glfwGetWindowSize(m_window, width, height);
-}
-
-void Window::CloseWindow() {
-	GRAPE_LOG_TRACE("Window: Closing Window.");
-	this->~Window();
 }
 
 void Window::SetupEvents(const std::function<void(const GRAPE::Event&)>& callback_func) {

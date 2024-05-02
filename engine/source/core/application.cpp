@@ -3,6 +3,7 @@
 namespace GRAPE {
 	Application::Application(const AppInfo& appinfo)
 	: m_appinfo(appinfo), m_logger("grape-engine_log"), m_window(appinfo) {
+		GRAPE_LOG_INFO("Application: Init complete.");
 	}
 
 	Application::~Application() {
@@ -16,14 +17,13 @@ namespace GRAPE {
 
 			case GRAPE::EventType::WINDOW_CLOSE: {
 				GRAPE_LOG_INFO("Application: Event received. EventType: Window Close.");
-				m_window.CloseWindow();
 				m_isrunning = false;
 			} break;
 		}
 	}
 
 	void Application::Run() {
-		GRAPE_LOG_INFO("Application started.");
+		GRAPE_LOG_INFO("Application: Main loop started.");
 
 		m_window.SetupEvents([this](const GRAPE::Event& ev) { this->HandleEvents(ev); });
 
@@ -32,7 +32,7 @@ namespace GRAPE {
 			m_window.PollEvents();
 		}
 
-		GRAPE_LOG_INFO("Application closed.");
+		GRAPE_LOG_INFO("Application: Main loop exited.");
 	}
 
 	void Application::TimeSleep(const uint32_t milliseconds) {

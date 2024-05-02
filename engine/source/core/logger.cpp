@@ -26,6 +26,8 @@ namespace GRAPE
 			s_Logger->set_level(spdlog::level::info);
 			s_Logger->flush_on(spdlog::level::info);
 		#endif
+
+		GRAPE_LOG_INFO("Logger: Init complete.");
 	}
 
 	Logger::~Logger() noexcept {
