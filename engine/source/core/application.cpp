@@ -9,19 +9,6 @@ namespace GRAPE {
 	Application::~Application() {
 	}
 
-	void Application::HandleEvents(const GRAPE::Event& event) {
-		switch (event.type) {
-			case GRAPE::EventType::NONE: {
-				GRAPE_LOG_INFO("Application: Event received. EventType: NULL, Test Event.");
-			} break;
-
-			case GRAPE::EventType::WINDOW_CLOSE: {
-				GRAPE_LOG_INFO("Application: Event received. EventType: Window Close.");
-				m_isrunning = false;
-			} break;
-		}
-	}
-
 	void Application::Run() {
 		GRAPE_LOG_INFO("Application: Main loop started.");
 
@@ -60,14 +47,9 @@ namespace GRAPE {
 		m_window.UpdateTitle(title);
 	}
 
-	void Application::UpdateWinSize(const int& width, const int& height) {
-		if (width == NULL && height != NULL) {
-			m_appinfo.win_height = height;
-		}
-		else if (width != NULL && height == NULL) {
-			m_appinfo.win_width = width;
-		}
-
+	void Application::UpdateWinSize(const uint32_t width, const uint32_t height) {
+		m_appinfo.win_height = height;
+		m_appinfo.win_width = width;
 		m_window.UpdateSize(width, height);
 	}
 

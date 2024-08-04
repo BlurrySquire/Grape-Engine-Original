@@ -86,34 +86,14 @@ void Window::GetSize(int* width, int* height) {
 	glfwGetWindowSize(m_window, width, height);
 }
 
-void Window::SetupEvents(const std::function<void(const GRAPE::Event&)>& callback_func) {
-	GRAPE_LOG_TRACE(
-		"Window: Initialising Events System."
-	);
-
-	m_event_callback = callback_func;
-
-	// To-Do:
-	//	- Setup GLFW callbacks for events.
-
-	// Test Event
-	m_event_callback.operator()(
-		GRAPE::Event{
-			.type = GRAPE::EventType::NONE
-		}
-	);
-}
-
 void Window::PollEvents() {
 	glfwPollEvents();
 
 	if (glfwWindowShouldClose(m_window)) {
 		glfwSetWindowShouldClose(m_window, GLFW_FALSE);
-
-		m_event_callback.operator()(
-			GRAPE::Event{
-				.type = GRAPE::EventType::WINDOW_CLOSE
-			}
-		);
 	}
+}
+
+bool Window::ShouldClose() {
+	return glfwWindowShouldClose(m_window);
 }

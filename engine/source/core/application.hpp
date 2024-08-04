@@ -15,8 +15,6 @@ namespace GRAPE {
 		AppInfo m_appinfo;
 
 		bool m_isrunning = false;
-
-		void HandleEvents(const GRAPE::Event& event);
 	public:
 		/*
 		* @brief Creates a grape application on construction.
@@ -92,7 +90,7 @@ namespace GRAPE {
 		* @param const int&: The height of the window, NULL if not updated.
 		* @returns Nothing.
 		*/
-		void UpdateWinSize(const int& width, const int& height);
+		void UpdateWinSize(const uint32_t width, const uint32_t height);
 
 		/*
 		* @brief Returns the current application info.
