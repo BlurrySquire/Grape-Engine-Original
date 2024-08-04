@@ -6,5 +6,10 @@
 *.sln
 *.vcxproj*
 
+# GNU Make Files
+Makefile
+sandbox/Makefile
+engine/Makefile
+
 # Log Files
 *.log
