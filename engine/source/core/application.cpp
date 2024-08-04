@@ -2,7 +2,7 @@
 
 namespace GRAPE {
 	Application::Application(const AppInfo& appinfo)
-	: m_appinfo(appinfo), m_logger("grape-engine_log"), m_window(appinfo) {
+	: m_logger("grape-engine_log"), m_window(appinfo), m_appinfo(appinfo) {
 		GRAPE_LOG_INFO("Application: Init complete.");
 	}
 
@@ -11,8 +11,6 @@ namespace GRAPE {
 
 	void Application::Run() {
 		GRAPE_LOG_INFO("Application: Main loop started.");
-
-		m_window.SetupEvents([this](const GRAPE::Event& ev) { this->HandleEvents(ev); });
 
 		m_isrunning = true;
 		while (m_isrunning) {

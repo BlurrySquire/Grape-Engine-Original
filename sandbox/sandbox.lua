@@ -19,4 +19,4 @@ project "Sandbox"
 	}
 
 	dependson	"Engine"
-	links		"Engine"
+	links		{ "Engine", "glfw" }

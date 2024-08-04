@@ -21,6 +21,7 @@ Window::Window(const GRAPE::AppInfo& appinfo) {
 			"Window: GLFW v{0}.{1}.{2} init failed.",
 			GLFW_VERSION_MAJOR, GLFW_VERSION_MINOR, GLFW_VERSION_REVISION
 		);
+		exit(-1);
 	}
 
 	GRAPE_LOG_INFO(
@@ -70,10 +71,10 @@ void Window::UpdateSize(const int& width, const int& height) {
 	int win_width, win_height;
 	glfwGetWindowSize(m_window, &win_width, &win_height);
 
-	if (width == NULL && height != NULL) {
+	if (width == 0 && height != 0) {
 		glfwSetWindowSize(m_window, win_width, height);
 	}
-	else if (width != NULL && height == NULL) {
+	else if (width != 0 && height == 0) {
 		glfwSetWindowSize(m_window, width, win_height);
 	}
 }

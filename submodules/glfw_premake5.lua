@@ -31,3 +31,9 @@ project "GLFW"
             "%{prj.location}/src/x11**.c",
             "%{prj.location}/src/xkb**.c",
         }
+    
+    filter "system:linux"
+        defines
+        {
+            "_GLFW_X11",
+        }
