@@ -1,5 +1,5 @@
 <h1 align=center>Grape Engine</h1>
-Grape engine is a work-in-progress 2D game engine created in C++. It uses Vulkan for rendering. However, I <b><i>might</i></b> add OpenGL support for low-end devices.
+Grape engine is a work-in-progress 2D game engine created in C++. Currently the plan is to use vulkan for rendering however I might start with OpenGL as I'm still learning.
 
 <h2 align=center>Attributions</h2>
   Thank you to <a href="https://github.com/travisvroman">Travis Vroman</a> for the <strong>'engine/source/defines.hpp'</strong> file. It was design for use with C and <a href="https://github.com/travisvroman/kohi">Kohi</a>, I modified it to better suit my engine and C++. A list of the modifications are in a comment at the top of the file.
