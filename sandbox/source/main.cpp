@@ -5,13 +5,12 @@ public:
     using GRAPE::Application::Application;
     using GRAPE::Application::Run;
 
-    void Init() override {
-        GRAPE_LOG_INFO("Sandbox: Initialised.");
-        Run();
-    }
-
     ~Sandbox() {
 
+    }
+
+    void Init() override {
+        GRAPE_LOG_INFO("Sandbox: Initialised.");
     }
 
     void Update() override {
@@ -23,12 +22,16 @@ public:
     }
 
     void OnWindowClose() override {
-        GRAPE_LOG_INFO("Hello.");
-        //CloseApplication();
+        GRAPE_LOG_INFO("Sandbox: Received 'Window Close' event.");
+        CloseApplication();
     }
 };
 
 int main(void) {
     Sandbox sandbox("Sandbox", 800, 600);
+
+    sandbox.Init();
+    sandbox.Run();
+
     return EXIT_SUCCESS;
 }

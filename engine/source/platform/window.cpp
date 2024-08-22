@@ -82,6 +82,7 @@ void Window::PollEvents() {
 
 	if (glfwWindowShouldClose(m_window)) {
 		glfwSetWindowShouldClose(m_window, GLFW_FALSE);
+		GRAPE_LOG_TRACE("Window: Sent 'Window Close' event.");
 		m_app->OnWindowClose();
 	}
 }

@@ -6,7 +6,6 @@ namespace GRAPE {
 	Application::Application(const std::string& title, std::uint32_t width, std::uint32_t height)
 		: Title(title), Width(width), Height(height), Logger(title), Window(title, width, height, this) {
 		IsRunning = false;
-		Init();
 	}
 
 	Application::~Application() {
