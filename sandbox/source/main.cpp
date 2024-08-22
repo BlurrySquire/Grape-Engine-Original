@@ -1,16 +1,34 @@
 #include <grape.hpp>
 
+class Sandbox : public GRAPE::Application {
+public:
+    using GRAPE::Application::Application;
+    using GRAPE::Application::Run;
+
+    void Init() override {
+        GRAPE_LOG_INFO("Sandbox: Initialised.");
+        Run();
+    }
+
+    ~Sandbox() {
+
+    }
+
+    void Update() override {
+
+    }
+
+    void Render() override {
+
+    }
+
+    void OnWindowClose() override {
+        GRAPE_LOG_INFO("Hello.");
+        //CloseApplication();
+    }
+};
+
 int main(void) {
-    GRAPE::AppInfo app_info = {
-        .win_title = "Grape-Engine Sandbox",
-        .win_width = 1280,
-        .win_height = 720,
-        .resizable = false
-    };
-
-    GRAPE::Application application(app_info);
-
-    application.Run();
-
+    Sandbox sandbox("Sandbox", 800, 600);
     return EXIT_SUCCESS;
 }

@@ -42,12 +42,3 @@ using float64_t = double;
     #define GRAPE_PLATFORM_UNKNOWN 1
     #error "Unsupported or unknown platform."
 #endif
-
-namespace GRAPE {
-    struct AppInfo {
-        std::string win_title;
-        int win_width;
-        int win_height;
-        bool resizable;
-    };
-};

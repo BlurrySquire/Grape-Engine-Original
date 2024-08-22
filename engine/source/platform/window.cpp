@@ -1,5 +1,7 @@
 #include "window.hpp"
 
+#include "../core/application.hpp"
+
 void glfw_WindowErrorCallback(int error_code, const char* description) {
 	GRAPE_LOG_CRITICAL(
 		"GLFW v{0}.{1}.{2} Error {3}: {4}",
@@ -8,7 +10,9 @@ void glfw_WindowErrorCallback(int error_code, const char* description) {
 	);
 }
 
-Window::Window(const GRAPE::AppInfo& appinfo) {
+Window::Window(const std::string& title, std::uint32_t width, std::uint32_t height,GRAPE::Application* app) {
+	m_app = app;
+
 	GRAPE_LOG_TRACE(
 		"Window: Initializing GLFW v{0}.{1}.{2}.",
 		GLFW_VERSION_MAJOR, GLFW_VERSION_MINOR, GLFW_VERSION_REVISION
@@ -29,23 +33,17 @@ Window::Window(const GRAPE::AppInfo& appinfo) {
 		GLFW_VERSION_MAJOR, GLFW_VERSION_MINOR, GLFW_VERSION_REVISION
 	);
 
-	if (appinfo.resizable == true) {
-		glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
-	}
-	else {
-		glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
-	}
+	glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
 
 	GRAPE_LOG_TRACE(
-		"Window: Opening {0} window '{1}' of size ({2}x{3}).",
-		appinfo.resizable ? "resizable" : "non-resizable",
-		appinfo.win_title,
-		appinfo.win_width, appinfo.win_height
+		"Window: Opening window '{0}' of size ({1}x{2}).",
+		title,
+		width, height
 	);
 
-	m_window = glfwCreateWindow(appinfo.win_width, appinfo.win_height, appinfo.win_title.c_str(), NULL, NULL);
+	m_window = glfwCreateWindow(width, height, title.c_str(), NULL, NULL);
 
-	if (m_window == NULL) {
+	if (m_window == nullptr) {
 		GRAPE_LOG_CRITICAL(
 			"Window: GLFW v{0}.{1}.{2} window creation failed.",
 			GLFW_VERSION_MAJOR, GLFW_VERSION_MINOR, GLFW_VERSION_REVISION
@@ -67,16 +65,8 @@ void Window::UpdateTitle(const std::string& title) {
 	glfwSetWindowTitle(m_window, title.c_str());
 }
 
-void Window::UpdateSize(const int& width, const int& height) {
-	int win_width, win_height;
-	glfwGetWindowSize(m_window, &win_width, &win_height);
-
-	if (width == 0 && height != 0) {
-		glfwSetWindowSize(m_window, win_width, height);
-	}
-	else if (width != 0 && height == 0) {
-		glfwSetWindowSize(m_window, width, win_height);
-	}
+void Window::UpdateSize(std::uint32_t width, std::uint32_t height) {
+		glfwSetWindowSize(m_window, width, height);
 }
 
 std::string Window::GetTitle() {
@@ -92,9 +82,6 @@ void Window::PollEvents() {
 
 	if (glfwWindowShouldClose(m_window)) {
 		glfwSetWindowShouldClose(m_window, GLFW_FALSE);
+		m_app->OnWindowClose();
 	}
-}
-
-bool Window::ShouldClose() {
-	return glfwWindowShouldClose(m_window);
 }
