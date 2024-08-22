@@ -17,6 +17,10 @@ Changes Made:
 using float32_t = float;
 using float64_t = double;
 
+namespace GRAPE {
+    void Init();
+}
+
 // Static Assertion
 #if defined(__clang__) || defined(__gcc__)
     #define STATIC_ASSERT _Static_assert
@@ -42,12 +46,3 @@ using float64_t = double;
     #define GRAPE_PLATFORM_UNKNOWN 1
     #error "Unsupported or unknown platform."
 #endif
-
-namespace GRAPE {
-    struct AppInfo {
-        std::string win_title;
-        int win_width;
-        int win_height;
-        bool resizable;
-    };
-};

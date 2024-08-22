@@ -7,19 +7,23 @@
 
 #include <GLFW/glfw3.h>
 
+namespace GRAPE {
+	class Application;
+}
+
 class Window {
 private:
 	GLFWwindow* m_window;
+	GRAPE::Application* m_app;
 public:
-	Window(const GRAPE::AppInfo& appinfo);
+	Window(const std::string& title, std::uint32_t width, std::uint32_t height, GRAPE::Application* app);
 	~Window();
 
 	void UpdateTitle(const std::string& title);
-	void UpdateSize(const int& width, const int& height);
+	void UpdateSize(std::uint32_t width, std::uint32_t height);
 
 	std::string GetTitle();
 	void GetSize(int* width, int* height);
 
 	void PollEvents();
-	bool ShouldClose();
 };
