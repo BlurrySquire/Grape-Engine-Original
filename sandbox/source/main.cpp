@@ -28,6 +28,8 @@ public:
 };
 
 int main(void) {
+    GRAPE::Init();
+
     Sandbox sandbox("Sandbox", 800, 600);
 
     sandbox.Init();

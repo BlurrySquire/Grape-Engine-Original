@@ -17,6 +17,10 @@ Changes Made:
 using float32_t = float;
 using float64_t = double;
 
+namespace GRAPE {
+    void Init();
+}
+
 // Static Assertion
 #if defined(__clang__) || defined(__gcc__)
     #define STATIC_ASSERT _Static_assert
